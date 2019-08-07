@@ -1,0 +1,17 @@
+#logo_component {
+  display: inline-block;
+  cursor: pointer;
+}
+
+#logo_component p {
+  color: var(--cta-color);
+  margin-bottom: 0;
+}
+
+#logo_component h5 {
+  margin-bottom: 0.2rem;
+}
+
+#logo {
+  display: inline-block;
+}
