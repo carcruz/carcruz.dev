@@ -7,10 +7,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <h3>
-      I’m a front-end web engineer with a curiosity for back-end implementations
-      and SaaS. I have worked in scientific and research settings, as well as in
-      myriad of data-driven industries. My passions include data visualization,
-      open-source projects and cutting edge technologies.
+      🔨 site under construction 🔧
     </h3>
   </Layout>
 );
