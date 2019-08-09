@@ -7,19 +7,18 @@ module.exports = {
     author: `@carcruz`,
   },
   plugins: [
-    {
-      resolve: "gatsby-plugin-mdx",
-      options: {
-        defaultLayouts: {
-          default: require.resolve("./src/components/layout.js"),
-        },
-      },
-    },
+    `gatsby-plugin-mdx`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
         path: `${__dirname}/src/content/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve("./src/components/layout.js"),
       },
     },
     `gatsby-plugin-styled-components`,
