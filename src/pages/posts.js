@@ -99,13 +99,13 @@ const Posts = () => {
   });
 
   return (
-    <Layout>
+    <>
       <h2>Blog posts</h2>
       <PostsContainer>
         {blogs &&
           blogs.map(node => (
-            <Post>
-              <StyledRoute key={node.id} to={node.path}>
+            <Post key={node.id}>
+              <StyledRoute to={node.path}>
                 <div>
                   <h3>{node.title}</h3>
                   <p>{node.description}</p>
@@ -125,8 +125,8 @@ const Posts = () => {
       <PostsContainer>
         {rawData &&
           rawData.map(node => (
-            <Post>
-              <StyledLink key={node.id} target="_blank" href={node.url}>
+            <Post key={node.id}>
+              <StyledLink target="_blank" href={node.url}>
                 <div>
                   <h3>{node.title}</h3>
                   <p>{node.description}</p>
@@ -140,7 +140,7 @@ const Posts = () => {
             </Post>
           ))}
       </PostsContainer>
-    </Layout>
+    </>
   );
 };
 
