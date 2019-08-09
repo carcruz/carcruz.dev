@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Logo from './Logo';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import AnimatedLogo from './AnimatedLogo';
+
 
 const HeaderLayout = styled.header`
   display: flex;
@@ -11,15 +11,9 @@ const HeaderLayout = styled.header`
   margin-top: 30px;
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`;
-
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <HeaderLayout>
-    <StyledLink to="/">
-      <Logo>Carlos Cruz</Logo>
-    </StyledLink>
+    <AnimatedLogo />
   </HeaderLayout>
 );
 
