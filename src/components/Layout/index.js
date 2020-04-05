@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Header from './header';
+import { Helmet } from 'react-helmet';
 import 'normalize.css/normalize.css';
 import './main-styles.css';
 
@@ -30,19 +31,29 @@ const Footer = styled.footer`
 
 const Layout = ({ children }) => {
   return (
-    <PageContainer>
-      <ContentWrap>
-        <Header />
-        {children}
-      </ContentWrap>
-      <Footer>
-        <p>© {new Date().getFullYear()}, Carlos Cruz</p>
-        {` `}
-        <p>
-          Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </p>
-      </Footer>
-    </PageContainer>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta
+          name="keywords"
+          content="developer,frontend,javascript,JavaScript,Costa Rica,Front end,Software engineer,d3js,d3"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
+      <PageContainer>
+        <ContentWrap>
+          <Header />
+          {children}
+        </ContentWrap>
+        <Footer>
+          <p>© {new Date().getFullYear()}, Carlos Cruz</p>
+          {` `}
+          <p>
+            Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </p>
+        </Footer>
+      </PageContainer>
+    </>
   );
 };
 

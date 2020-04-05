@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
+import SEO from '../components/seo';
 import { Link } from 'gatsby';
 
 const LinkStyled = css`
@@ -99,6 +100,7 @@ const Posts = () => {
 
   return (
     <>
+      <SEO title="Blog" />
       <h2>Blog posts</h2>
       <PostsContainer>
         {blogs &&

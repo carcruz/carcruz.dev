@@ -41,7 +41,7 @@ const Navbar = () => {
       <StyledLink activeClassName="active" to="/">
         Home
       </StyledLink>
-      <StyledLink activeClassName="active" to="/posts">
+      <StyledLink activeClassName="active" partiallyActive={true} to="/blog">
         Bloog
       </StyledLink>
       <StyledLink activeClassName="active" to="/projects">

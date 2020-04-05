@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "carcruz.dev",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Personal site porfolio",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Carlos Cruz <me@carcruzcast.com>",
   "dependencies": {
     "@mdx-js/mdx": "^1.1.6",
     "@mdx-js/react": "^1.1.6",
