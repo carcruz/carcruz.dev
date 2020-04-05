@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import AnimatedLogo from '../AnimatedLogo';
+// import AnimatedLogo from '../AnimatedLogo';
 import Navbar from './Navbar'
 import { Provider } from 'react-dims';
 
@@ -16,7 +16,6 @@ const HeaderLayout = styled.header`
 const Header = () => (
   <Provider>
     <HeaderLayout>
-      {/* <AnimatedLogo /> */}
     </HeaderLayout>
     <Navbar />
   </Provider>

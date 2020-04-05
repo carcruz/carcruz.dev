@@ -12,7 +12,7 @@ const StyledLink = styled(Link)`
   border: solid 1px #404041;
   transition: all 300ms ease;
   margin: 0 15px;
-  &:hover {
+  &:hover, &.active {
     -webkit-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
     -moz-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
     box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
@@ -23,7 +23,9 @@ const StyledLink = styled(Link)`
     color: #fff;
     border: solid 1px #404041;
   }
-  vertical-align: middle;
+  @media only screen and (max-width: 600px) {
+    margin: 0 5px;
+  }
 `;
 
 const NavBarContainer = styled.nav`
@@ -40,10 +42,10 @@ const Navbar = () => {
         Home
       </StyledLink>
       <StyledLink activeClassName="active" to="/posts">
-        Bloog & Posts
+        Bloog
       </StyledLink>
-      <StyledLink activeClassName="active" to="/about">
-        About
+      <StyledLink activeClassName="active" to="/projects">
+        Projects
       </StyledLink>
     </NavBarContainer>
   );
