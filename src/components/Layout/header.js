@@ -1,20 +1,25 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import AnimatedLogo from './AnimatedLogo';
-
+import AnimatedLogo from '../AnimatedLogo';
+import Navbar from './Navbar'
+import { Provider } from 'react-dims';
 
 const HeaderLayout = styled.header`
   display: flex;
-  align-content: space-between;
-  padding: 0 30px;
-  margin-top: 30px;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  width: 100%;
 `;
 
 const Header = () => (
-  <HeaderLayout>
-    <AnimatedLogo />
-  </HeaderLayout>
+  <Provider>
+    <HeaderLayout>
+      {/* <AnimatedLogo /> */}
+    </HeaderLayout>
+    <Navbar />
+  </Provider>
 );
 
 Header.propTypes = {

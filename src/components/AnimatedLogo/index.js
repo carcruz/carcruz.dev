@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { withContext } from 'react-dims';
 import * as d3 from 'd3';
 
-const config = {
-  w: 250,
+const defaultConfig = {
+  w: 400,
   h: 40,
   w_small: 200,
   reactOps: { h: 40 / 5 - 1, y: 40 / 5 },
 };
 
 const SVGContainer = styled.svg``;
-const Rect = styled.rect``;
+const RectElement = styled.rect``;
 
 const StyledLink = styled(Link)`
   display: block;
 `;
 
-class RectCoponent extends Component {
+class Rect extends Component {
   constructor(props) {
     super(props);
     this.reactRef = React.createRef();
@@ -42,7 +43,7 @@ class RectCoponent extends Component {
             this.setState({ x: rX, w: rW });
           });
       }
-    }, 10000);
+    }, 15000);
   }
 
   componentDidMount() {
@@ -53,7 +54,7 @@ class RectCoponent extends Component {
     const { fill, height, y } = this.props;
     const { x, w } = this.state;
     return (
-      <Rect
+      <RectElement
         ref={this.reactRef}
         fill={fill}
         height={height}
@@ -66,59 +67,63 @@ class RectCoponent extends Component {
   }
 }
 
-const AnimatedLogo = () => (
-  <StyledLink to="/">
-    <SVGContainer width={config.w} height={config.h}>
-      <RectCoponent
-        fill="#17B6E5"
-        height={7}
-        y={0}
-        width={config.w * 0.14}
-        x={150}
-        parentWidth={config.w}
-      />
-      <RectCoponent
-        fill="#404041"
-        height={7}
-        y={config.reactOps.y}
-        width={20}
-        x={90}
-        parentWidth={config.w}
-      />
-      <RectCoponent
-        fill="#404041"
-        height={7}
-        y={config.reactOps.y * 2}
-        width={30}
-        x={50}
-        parentWidth={config.w}
-      />
-      <RectCoponent
-        fill="#404041"
-        height={7}
-        y={config.reactOps.y * 3}
-        width={30}
-        x={120}
-        parentWidth={config.w}
-      />
-      <RectCoponent
-        fill="#404041"
-        height={7}
-        y={config.reactOps.y * 4}
-        width={50}
-        x={0}
-        parentWidth={config.w}
-      />
-      <RectCoponent
-        fill="#404041"
-        height={7}
-        y={config.reactOps.y * 4}
-        width={10}
-        x={200}
-        parentWidth={config.w}
-      />
-    </SVGContainer>
-  </StyledLink>
-);
+const AnimatedLogo = ({ dims, config = defaultConfig }) => {
+  console.log(dims)
+  // if (!dims.width) return null;
+  return (
+    <StyledLink to="/">
+      <SVGContainer width={dims.width} height={config.h}>
+        <Rect
+          fill="#17B6E5"
+          height={7}
+          y={0}
+          width={10}
+          x={150}
+          parentWidth={dims.width}
+        />
+        <Rect
+          fill="#404041"
+          height={7}
+          y={config.reactOps.y}
+          width={20}
+          x={90}
+          parentWidth={dims.width}
+        />
+        <Rect
+          fill="#404041"
+          height={7}
+          y={config.reactOps.y * 2}
+          width={30}
+          x={50}
+          parentWidth={dims.width}
+        />
+        <Rect
+          fill="#404041"
+          height={7}
+          y={config.reactOps.y * 3}
+          width={30}
+          x={120}
+          parentWidth={dims.width}
+        />
+        <Rect
+          fill="#404041"
+          height={7}
+          y={config.reactOps.y * 4}
+          width={50}
+          x={0}
+          parentWidth={dims.width}
+        />
+        <Rect
+          fill="#404041"
+          height={7}
+          y={config.reactOps.y * 4}
+          width={10}
+          x={200}
+          parentWidth={dims.width}
+        />
+      </SVGContainer>
+    </StyledLink>
+  );
+};
 
-export default AnimatedLogo;
+export default withContext(AnimatedLogo);
