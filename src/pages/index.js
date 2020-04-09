@@ -25,10 +25,6 @@ const IndexPage = () => (
       and SaaS. I have worked in scientific and research settings, as well as in
       myriad of data-driven industries.
     </MainText>
-    <MainText>
-      My passions include data visualization, open-source projects and cutting
-      edge technologies
-    </MainText>
   </>
 );
 

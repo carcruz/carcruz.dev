@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
-import MiniLogo from '../../images/logo-mini.svg';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
