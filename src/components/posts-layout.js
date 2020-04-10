@@ -1,14 +1,28 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { Link } from 'gatsby';
+import {
+  MainHeader,
+  BlogHeader,
+  BlogMainContent,
+  BlogFooter,
+  ReferenceText,
+  NavLink,
+} from './common';
 
 export default function PageTemplate({ data: { mdx } }) {
   return (
     <>
-      <h1>{mdx.frontmatter.title}</h1>
-      <MDXRenderer>{mdx.body}</MDXRenderer>
-      <Link to="/posts">back to posts</Link>
+      <BlogHeader>
+        <MainHeader>{mdx.frontmatter.title}</MainHeader>
+        <ReferenceText>{mdx.frontmatter.description}</ReferenceText>
+      </BlogHeader>
+      <BlogMainContent>
+        <MDXRenderer>{mdx.body}</MDXRenderer>
+      </BlogMainContent>
+      <BlogFooter>
+        <NavLink to="/blog">Back to all posts</NavLink>
+      </BlogFooter>
     </>
   );
 }
@@ -20,6 +34,8 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        by
+        description
       }
     }
   }

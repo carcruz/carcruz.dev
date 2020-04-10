@@ -13,11 +13,12 @@ const PageContainer = styled.main`
 
 const ContentWrap = styled.section`
   padding-bottom: 75px; /* Footer height */
-  max-width: 1440px;
+  max-width: 1024px;
   margin: 0 auto;
   @media only screen and (max-width: 1520px) {
     margin: 0 40px;
   }
+  overflow: hidden;
 `;
 
 const Footer = styled.footer`
