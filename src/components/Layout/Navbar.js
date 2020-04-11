@@ -6,7 +6,6 @@ const NavBarContainer = styled.nav`
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 100px;
 `;
 
 const StyledNavLink = styled(NavLink)`

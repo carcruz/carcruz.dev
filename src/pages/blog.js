@@ -3,13 +3,14 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
 import SEO from '../components/seo';
 import { Link } from 'gatsby';
+import moment from 'moment'
 
 const LinkStyled = css`
+  position: relative;
   text-decoration: none;
   display: flex;
   color: #404041;
-  padding: 10px 20px;
-  margin-bottom: 10px;
+  padding: 15px 20px;
   border: solid 1px #404041;
   transition: all 300ms ease;
   &:hover {
@@ -20,17 +21,7 @@ const LinkStyled = css`
 `;
 
 const Post = styled.div`
-  width: 33%;
-  &:not(:last-child) {
-    margin-right: 1%;
-  }
-  @media only screen and (max-width: 960px) {
-    width: 50%;
-  }
-
-  @media only screen and (max-width: 700px) {
-    width: 100%;
-  }
+  width: 100%;
 `;
 
 const StyledLink = styled.a`
@@ -42,10 +33,16 @@ const StyledRoute = styled(Link)`
 `;
 
 const PostsContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
   @media only screen and (max-width: 700px) {
-    flex-direction: column;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media only screen and (max-width: 1075px) and (min-width: 700px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -56,9 +53,42 @@ const TagContainer = styled.div`
 `;
 
 const Tag = styled.span`
-  padding: 5px 5px;
+  padding: 2px 5px;
   background: #f6f6f6;
   margin-right: 5px;
+  font-size: 12px;
+  font-weight: 500;
+`;
+
+const CardContent = styled.div`
+  width: 100%;
+`;
+
+const CardTitle = styled.h3`
+  margin-bottom: 4px;
+  margin-top: 0px;
+`;
+
+const CardText = styled.p`
+  margin: 0;
+  margin-bottom: 7px;
+`;
+
+const CardDateContainer = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: #A6A6A6;
+  color: #fff;
+  padding: 0px 5px; 
+`;
+
+const CardDate = styled.p`
+  font-size: 11px;
+  /* font-weight: 700; */
+  font-family: 'Inconsolata';
+  margin: 0;
+  text-align: right;
 `;
 
 const Posts = () => {
@@ -73,6 +103,7 @@ const Posts = () => {
               tags
               description
               url
+              created_at
             }
           }
         }
@@ -86,6 +117,7 @@ const Posts = () => {
               title
               description
               path
+              date
             }
           }
         }
@@ -107,16 +139,19 @@ const Posts = () => {
           blogs.map(node => (
             <Post key={node.id}>
               <StyledRoute to={node.path}>
-                <div>
-                  <h3>{node.title}</h3>
-                  <p>{node.description}</p>
+                <CardContent>
+                  <CardTitle>{node.title}</CardTitle>
+                  <CardText>{node.description}</CardText>
+                  <CardDateContainer>
+                    <CardDate>{node.date}</CardDate>
+                  </CardDateContainer>
                   <TagContainer>
                     {node.tags &&
                       node.tags.map(tag => (
                         <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
                       ))}
                   </TagContainer>
-                </div>
+                </CardContent>
               </StyledRoute>
             </Post>
           ))}
@@ -128,15 +163,18 @@ const Posts = () => {
           rawData.map(node => (
             <Post key={node.id}>
               <StyledLink target="_blank" href={node.url}>
-                <div>
-                  <h3>{node.title}</h3>
-                  <p>{node.description}</p>
+                <CardContent>
+                  <CardTitle>{node.title}</CardTitle>
+                  <CardText>{node.description}</CardText>
+                  <CardDateContainer>
+                    <CardDate>{moment(node.created_at).format('MMM D, YYYY')}</CardDate>
+                  </CardDateContainer>
                   <TagContainer>
                     {node.tags.map(tag => (
                       <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
                     ))}
                   </TagContainer>
-                </div>
+                </CardContent>
               </StyledLink>
             </Post>
           ))}

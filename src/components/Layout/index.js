@@ -9,15 +9,15 @@ import './main-styles.css';
 const PageContainer = styled.main`
   position: relative;
   min-height: 100vh;
-`;
-
-const ContentWrap = styled.section`
-  padding-bottom: 75px; /* Footer height */
-  max-width: 1024px;
-  margin: 0 auto;
   @media only screen and (max-width: 1520px) {
     margin: 0 40px;
   }
+`;
+
+const ContentWrap = styled.section`
+  padding-bottom: 60px; /* Footer height */
+  max-width: 1024px;
+  margin: 0 auto;
   overflow: hidden;
 `;
 
@@ -27,7 +27,7 @@ const Footer = styled.footer`
   width: 100%;
   border-top: 1px solid #e3e3e3;
   text-align: center;
-  height: 75px;
+  height: 60px;
 `;
 
 const Layout = ({ children }) => {
@@ -48,10 +48,6 @@ const Layout = ({ children }) => {
         </ContentWrap>
         <Footer>
           <p>© {new Date().getFullYear()}, Carlos Cruz</p>
-          {` `}
-          <p>
-            Built with <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </p>
         </Footer>
       </PageContainer>
     </>

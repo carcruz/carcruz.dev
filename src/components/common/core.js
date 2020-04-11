@@ -5,7 +5,7 @@ export const NavLink = styled(Link)`
   text-decoration: none;
   display: inline-block;
   color: #404041;
-  padding: 10px 20px;
+  padding: 7px 20px;
   margin-bottom: 10px;
   border: solid 1px #404041;
   transition: all 300ms ease;
