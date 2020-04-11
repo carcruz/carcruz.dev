@@ -3,7 +3,19 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled, { css } from 'styled-components';
 import SEO from '../components/seo';
 import { Link } from 'gatsby';
-import moment from 'moment'
+import {
+  SubTitle,
+  Tag,
+  TagContainer,
+  Card,
+  CardContent,
+  CardsContainer,
+  CardTitle,
+  CardText,
+  CardDateContainer,
+  CardDate,
+} from '../components/common';
+import moment from 'moment';
 
 const LinkStyled = css`
   position: relative;
@@ -20,75 +32,12 @@ const LinkStyled = css`
   }
 `;
 
-const Post = styled.div`
-  width: 100%;
-`;
-
 const StyledLink = styled.a`
   ${LinkStyled}
 `;
 
 const StyledRoute = styled(Link)`
   ${LinkStyled}
-`;
-
-const PostsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
-  @media only screen and (max-width: 700px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  @media only screen and (max-width: 1075px) and (min-width: 700px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`;
-
-const TagContainer = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-`;
-
-const Tag = styled.span`
-  padding: 2px 5px;
-  background: #f6f6f6;
-  margin-right: 5px;
-  font-size: 12px;
-  font-weight: 500;
-`;
-
-const CardContent = styled.div`
-  width: 100%;
-`;
-
-const CardTitle = styled.h3`
-  margin-bottom: 4px;
-  margin-top: 0px;
-`;
-
-const CardText = styled.p`
-  margin: 0;
-  margin-bottom: 7px;
-`;
-
-const CardDateContainer = styled.div`
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: #A6A6A6;
-  color: #fff;
-  padding: 0px 5px; 
-`;
-
-const CardDate = styled.p`
-  font-size: 11px;
-  /* font-weight: 700; */
-  font-family: 'Inconsolata';
-  margin: 0;
-  text-align: right;
 `;
 
 const Posts = () => {
@@ -113,6 +62,7 @@ const Posts = () => {
           node {
             id
             frontmatter {
+              tags
               blog
               title
               description
@@ -133,11 +83,11 @@ const Posts = () => {
   return (
     <>
       <SEO title="Blog" />
-      <h2>Blog posts</h2>
-      <PostsContainer>
+      <SubTitle>Blog posts</SubTitle>
+      <CardsContainer>
         {blogs &&
           blogs.map(node => (
-            <Post key={node.id}>
+            <Card key={node.id}>
               <StyledRoute to={node.path}>
                 <CardContent>
                   <CardTitle>{node.title}</CardTitle>
@@ -153,21 +103,23 @@ const Posts = () => {
                   </TagContainer>
                 </CardContent>
               </StyledRoute>
-            </Post>
+            </Card>
           ))}
-      </PostsContainer>
+      </CardsContainer>
 
-      <h2>Dev.to</h2>
-      <PostsContainer>
+      <SubTitle>Dev.to</SubTitle>
+      <CardsContainer>
         {rawData &&
           rawData.map(node => (
-            <Post key={node.id}>
+            <Card key={node.id}>
               <StyledLink target="_blank" href={node.url}>
                 <CardContent>
                   <CardTitle>{node.title}</CardTitle>
                   <CardText>{node.description}</CardText>
                   <CardDateContainer>
-                    <CardDate>{moment(node.created_at).format('MMM D, YYYY')}</CardDate>
+                    <CardDate>
+                      {moment(node.created_at).format('MMM D, YYYY')}
+                    </CardDate>
                   </CardDateContainer>
                   <TagContainer>
                     {node.tags.map(tag => (
@@ -176,9 +128,9 @@ const Posts = () => {
                   </TagContainer>
                 </CardContent>
               </StyledLink>
-            </Post>
+            </Card>
           ))}
-      </PostsContainer>
+      </CardsContainer>
     </>
   );
 };

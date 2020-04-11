@@ -28,6 +28,7 @@
     "react-dims": "^1.0.8",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.9.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {
