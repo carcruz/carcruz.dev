@@ -57,7 +57,7 @@ const Posts = () => {
           }
         }
       }
-      allMdx {
+      allMdx(filter: { frontmatter: { path: { regex: "/blog/" } } }) {
         edges {
           node {
             id

@@ -7,14 +7,13 @@ module.exports = {
     author: `@carcruz`,
   },
   plugins: [
-    `gatsby-plugin-mdx`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "posts",
-        path: `${__dirname}/src/content/posts`,
+        path: `${__dirname}/src/content`,
       },
     },
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-plugin-layout`,
       options: {
