@@ -6,11 +6,11 @@
 
 // You can delete this file if you're not using it
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  // Destructure the createPage function from the actions object
-  const { createPage } = actions
-  const result = await graphql(`
+  const { createPage } = actions;
+  // POSTS
+  const posts = await graphql(`
     query {
-      allMdx {
+      allMdx(filter: { frontmatter: { path: { regex: "/blog/" } } }) {
         edges {
           node {
             id
@@ -21,23 +21,42 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         }
       }
     }
-  `)
-  if (result.errors) {
-    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
+  `);
+  if (posts.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
   }
-  // Create blog post pages.
-  const posts = result.data.allMdx.edges
-  // We'll call `createPage` for each result
-  posts.forEach(({ node }, index) => {
+  const postsNodes = posts.data.allMdx.edges;
+  postsNodes.forEach(({ node }) => {
     createPage({
-      // This is the slug we created before
-      // (or `node.frontmatter.slug`)
       path: node.frontmatter.path,
-      // This component will wrap our MDX content
-      component: require.resolve("./src/components/posts-layout.js"),
-      // We can use the values in this context in
-      // our page layout component
+      component: require.resolve('./src/components/post-layout.js'),
       context: { id: node.id },
-    })
-  })
-}
+    });
+  });
+  // PROJECTS
+  const projects = await graphql(`
+    query {
+      allMdx(filter: { frontmatter: { path: { regex: "/projects/" } } }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
+    }
+  `);
+  if (projects.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+  }
+  const projectsNodes = projects.data.allMdx.edges;
+  projectsNodes.forEach(({ node }) => {
+    createPage({
+      path: node.frontmatter.path,
+      component: require.resolve('./src/components/project-layout.js'),
+      context: { id: node.id },
+    });
+  });
+};

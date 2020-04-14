@@ -15,7 +15,7 @@ const PageContainer = styled.main`
 `;
 
 const ContentWrap = styled.section`
-  padding-bottom: 60px; /* Footer height */
+  padding-bottom: 90px; /* Footer height */
   max-width: 1024px;
   margin: 0 auto;
   overflow: hidden;

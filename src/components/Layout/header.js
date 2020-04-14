@@ -6,7 +6,8 @@ import Navbar from './Navbar'
 const HeaderLayout = styled.header`
   display: flex;
   justify-content: center;
-  padding: 60px 0;
+  padding-top: 3em;
+  padding-bottom: 60px;
   text-align: center;
   width: 100%;
 `;
