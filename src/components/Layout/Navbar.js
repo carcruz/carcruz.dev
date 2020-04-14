@@ -24,7 +24,7 @@ const Navbar = () => {
       <StyledNavLink activeClassName="active" partiallyActive={true} to="/blog">
         Blog
       </StyledNavLink>
-      <StyledNavLink activeClassName="active" to="/projects">
+      <StyledNavLink activeClassName="active" partiallyActive={true} to="/projects">
         Projects
       </StyledNavLink>
     </NavBarContainer>

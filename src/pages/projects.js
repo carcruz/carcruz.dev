@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from '../components/seo';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import {
@@ -15,22 +15,8 @@ import {
   CardText,
   CardDateContainer,
   CardDate,
+  LinkStyled
 } from '../components/common';
-
-const LinkStyled = css`
-  position: relative;
-  text-decoration: none;
-  display: flex;
-  color: #404041;
-  padding: 15px 20px;
-  border: solid 1px #404041;
-  transition: all 300ms ease;
-  &:hover {
-    -webkit-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
-    -moz-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
-    box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
-  }
-`;
 
 const StyledRoute = styled(Link)`
   ${LinkStyled}

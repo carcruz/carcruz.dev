@@ -2,25 +2,27 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   width: 100%;
+  height: 150px;
 `;
 
 export const CardsContainer = styled.div`
   margin-bottom: 30px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 15px;
   grid-row-gap: 15px;
   @media only screen and (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
   }
+  /* mid size */
+  /* @media only screen and (max-width: 1075px) and (min-width: 700px) {
 
-  @media only screen and (max-width: 1075px) and (min-width: 700px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  } */
 `;
 
 export const CardContent = styled.div`
   width: 100%;
+  padding: 15px 20px;
 `;
 
 export const CardTitle = styled.h3`
@@ -30,8 +32,12 @@ export const CardTitle = styled.h3`
 
 export const CardText = styled.p`
   margin: 0;
+  width: 100%;
+  height: 48px;
   margin-bottom: 14px;
   margin-top: 7px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const CardDateContainer = styled.div`

@@ -14,23 +14,9 @@ import {
   CardText,
   CardDateContainer,
   CardDate,
+  LinkStyled
 } from '../components/common';
 import moment from 'moment';
-
-const LinkStyled = css`
-  position: relative;
-  text-decoration: none;
-  display: flex;
-  color: #404041;
-  padding: 15px 20px;
-  border: solid 1px #404041;
-  transition: all 300ms ease;
-  &:hover {
-    -webkit-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
-    -moz-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
-    box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
-  }
-`;
 
 const StyledLink = styled.a`
   ${LinkStyled}
@@ -97,7 +83,7 @@ const Posts = () => {
                   </CardDateContainer>
                   <TagContainer>
                     {node.tags &&
-                      node.tags.map(tag => (
+                      node.tags.split(',').map(tag => (
                         <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
                       ))}
                   </TagContainer>
@@ -107,7 +93,13 @@ const Posts = () => {
           ))}
       </CardsContainer>
 
-      <SubTitle>Dev.to</SubTitle>
+      <SubTitle>
+        Some in{' '}
+        <a href="https://dev.to/" target="_blank" rel="noopener noreferrer">
+          DEV.to
+        </a>{' '}
+        community
+      </SubTitle>
       <CardsContainer>
         {rawData &&
           rawData.map(node => (
