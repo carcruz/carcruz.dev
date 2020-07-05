@@ -10,6 +10,7 @@ const NavBarContainer = styled.nav`
 
 const StyledNavLink = styled(NavLink)`
   margin: 0 15px;
+  width: 100px;
   @media only screen and (max-width: 600px) {
     margin: 0 5px;
   }
