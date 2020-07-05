@@ -31,11 +31,10 @@ export const TagContainer = styled.div`
 
 export const Tag = styled.span`
   padding: 2px 5px;
-  background: #CACACA;
+  background: var(--light-grey-color);
   color: #fff;
   margin-right: 7px;
   font-size: 12px;
   /* font-weight: 100; */
   font-family: 'Inconsolata';
-
 `;

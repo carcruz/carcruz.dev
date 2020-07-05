@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import SEO from '../components/seo';
 import { Link } from 'gatsby';
 import {
@@ -14,7 +14,7 @@ import {
   CardText,
   CardDateContainer,
   CardDate,
-  LinkStyled
+  LinkStyled,
 } from '../components/common';
 import moment from 'moment';
 
@@ -69,7 +69,8 @@ const Posts = () => {
   return (
     <>
       <SEO title="Blog" />
-      <SubTitle>Blog posts</SubTitle>
+      {/* <SubTitle>Blog posts</SubTitle> */}
+      <br></br>
       <CardsContainer>
         {blogs &&
           blogs.map(node => (
@@ -83,9 +84,11 @@ const Posts = () => {
                   </CardDateContainer>
                   <TagContainer>
                     {node.tags &&
-                      node.tags.split(',').map(tag => (
-                        <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
-                      ))}
+                      node.tags
+                        .split(',')
+                        .map(tag => (
+                          <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
+                        ))}
                   </TagContainer>
                 </CardContent>
               </StyledRoute>

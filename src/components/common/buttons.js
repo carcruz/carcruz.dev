@@ -1,6 +1,5 @@
-
 import { Link } from 'gatsby';
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const NavLink = styled(Link)`
   display: inline-block;
@@ -30,7 +29,7 @@ export const LinkStyled = css`
   display: flex;
   color: #404041;
   width: 100%;
-  border: solid 1px #404041;
+  border: solid 1px var(--grey-color);
   transition: all 300ms ease;
   height: 100%;
   &:hover {

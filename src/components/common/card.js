@@ -14,10 +14,6 @@ export const CardsContainer = styled.div`
   @media only screen and (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
   }
-  /* mid size */
-  /* @media only screen and (max-width: 1075px) and (min-width: 700px) {
-
-  } */
 `;
 
 export const CardContent = styled.div`
@@ -28,6 +24,7 @@ export const CardContent = styled.div`
 export const CardTitle = styled.h3`
   margin-bottom: 4px;
   margin-top: 0px;
+  color: var(--cta-color);
 `;
 
 export const CardText = styled.p`
@@ -44,7 +41,7 @@ export const CardDateContainer = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  background-color: #CACACA;
+  background-color: var(--light-grey-color);
   color: #fff;
   padding: 0px 5px;
 `;
