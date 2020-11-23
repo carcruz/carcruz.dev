@@ -26,16 +26,20 @@ const IndexPage = () => {
       <MainHeader>Carlos Cruz</MainHeader>
       <MainText>
         Hi! I’m Carlos Cruz, a front-end web engineer with a curiosity for
-        back-end implementations and SaaS. I have worked in scientific and
-        research settings, as well as in myriad of data-driven industries.
+        back-end implementations and SaaS.
       </MainText>
-      <p>
-        I am currently a full time contractor as a Web and Software Engineer at{' '}
+      <MainText>
+        I enjoy building data visualizations and modern platforms tools for
+        commercial, scientific, and research purposes, and I have worked in
+        diverse data-driven industries, from IoT to Healthcare.
+      </MainText>
+      <MainText>
+        Currently I am a Web and Software Engineer at{' '}
         <a href="https://trinetx.com/" target="_blank" rel="noreferrer">
-          TriNetX
+          TriNetX.
         </a>
         .
-      </p>
+      </MainText>
       <br />
       <RelatedLinksContainer>
         <LocationLink url="https://goo.gl/maps/C29XqxWtDJixzrQX9">
@@ -49,13 +53,13 @@ const IndexPage = () => {
       <br />
       <StaticLinksContainer>
         <StaticNavLink
-          href="https://carcruz.s3-us-west-2.amazonaws.com/CV.pdf"
+          href="https://carcruz.s3-us-west-2.amazonaws.com/cv-carlos-cruz.pdf"
           target="blank"
         >
           CV
         </StaticNavLink>
         <StaticNavLink
-          href="https://carcruz.s3-us-west-2.amazonaws.com/Resume.pdf"
+          href="https://carcruz.s3-us-west-2.amazonaws.com/resume-carlos-cruz.pdf"
           target="blank"
         >
           Resume
