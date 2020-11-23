@@ -1,0 +1,38 @@
+---
+path: '/projects/vizgvar'
+title: 'VizGVar'
+description: 'Visualization tool for the exploration of large datasets of viral sequences.'
+by: 'Carlos Cruz'
+tags: 'JavaScript, D3JS, JQuery'
+smallImage: '../../images/vizgvar/small.png'
+live: 'https://vizgvar.surge.sh/'
+github: 'https://github.com/vizport/vizgvar'
+docs: 'https://github.com/vizport/vizgvar-docs'
+---
+
+import { ImageMDX, TagContainer, Tag } from '../../components/common';
+import Slider from 'react-slick';
+
+
+<TagContainer>
+  <Tag>JavaScript</Tag>
+  <Tag>D3js</Tag>
+  <Tag>JQuery</Tag>
+</TagContainer>
+
+<br>
+</br>
+<br>
+</br>
+
+<Slider dots infinite slidesToShow={1} slidesToScroll={1}>
+  <div>
+      <ImageMDX src="vgv-show-0.png" alt="ore" />
+  </div>
+  <div>
+      <ImageMDX src="vgv-show-1.png" alt="ore" />
+  </div>
+  <div>
+      <ImageMDX src="vgv-show-2.png" alt="ore" />
+  </div>
+</Slider>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 
 export const Card = styled.div`
   width: 100%;
@@ -17,7 +18,7 @@ export const CardsContainer = styled.div`
 `;
 
 export const CardContent = styled.div`
-  width: 100%;
+  width: ${props => (props.small ? '50%' : '100%')};
   padding: 15px 20px;
 `;
 
@@ -35,6 +36,15 @@ export const CardText = styled.p`
   margin-top: 7px;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`;
+
+export const CardContainerImage = styled.div`
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
 `;
 
 export const CardDateContainer = styled.div`

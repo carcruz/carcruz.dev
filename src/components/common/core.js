@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 
 export const BlogMainContent = styled.section`
-  max-width: 650px;
   line-height: 1.6em;
   margin-bottom: 30px;
 `;

@@ -16,20 +16,21 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const Navbar = () => {
-  return (
-    <NavBarContainer>
-      <StyledNavLink activeClassName="active" to="/">
-        Home
-      </StyledNavLink>
-      <StyledNavLink activeClassName="active" partiallyActive={true} to="/blog">
-        Blog
-      </StyledNavLink>
-      <StyledNavLink activeClassName="active" partiallyActive={true} to="/projects">
-        Projects
-      </StyledNavLink>
-    </NavBarContainer>
-  );
-};
+const Navbar = () => (
+  <NavBarContainer>
+    <StyledNavLink activeClassName="active" to="/">
+      Home
+    </StyledNavLink>
+    <StyledNavLink
+      activeClassName="active"
+      partiallyActive={true}
+      to="/projects"
+    >
+      Projects
+    </StyledNavLink>
+    <StyledNavLink activeClassName="active" partiallyActive={true} to="/blog">
+      Blog</StyledNavLink>
+  </NavBarContainer>
+);
 
 export default Navbar;
