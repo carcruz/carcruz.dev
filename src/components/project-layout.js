@@ -43,16 +43,16 @@ export default function PageTemplate({ data: { mdx } }) {
       </BlogHeader>
       <RelatedLinksContainer>
         {mdx.frontmatter.live && (
-          <LiveLink url={mdx.frontmatter.live}> Live</LiveLink>
+          <LiveLink url={mdx.frontmatter.live}> Visit site</LiveLink>
         )}
         {mdx.frontmatter.github && (
-          <GithubLink url={mdx.frontmatter.github}> Github</GithubLink>
+          <GithubLink url={mdx.frontmatter.github}> Visit repo</GithubLink>
         )}
         {mdx.frontmatter.docs && (
-          <DocsLink url={mdx.frontmatter.docs}> Docs</DocsLink>
+          <DocsLink url={mdx.frontmatter.docs}> See docs</DocsLink>
         )}
         {mdx.frontmatter.paper && (
-          <PaperLink url={mdx.frontmatter.paper}> Related publication</PaperLink>
+          <PaperLink url={mdx.frontmatter.paper}> See publication</PaperLink>
         )}
       </RelatedLinksContainer>
       <BlogMainContent>
