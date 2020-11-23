@@ -12,8 +12,6 @@ import {
   CardsContainer,
   CardTitle,
   CardText,
-  CardDateContainer,
-  CardDate,
   CardContainerImage,
   LinkStyled,
   Image,

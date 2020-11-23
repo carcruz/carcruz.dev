@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Img from 'gatsby-image';
 
 export const Card = styled.div`
   width: 100%;
@@ -14,6 +13,7 @@ export const CardsContainer = styled.div`
   grid-row-gap: 15px;
   @media only screen and (max-width: 700px) {
     grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 35px;
   }
 `;
 
@@ -26,6 +26,9 @@ export const CardTitle = styled.h3`
   margin-bottom: 4px;
   margin-top: 0px;
   color: var(--cta-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 export const CardText = styled.p`

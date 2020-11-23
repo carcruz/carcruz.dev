@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled, { css } from 'styled-components';
-import { IoLogoGithub, IoMdGlobe, IoMdBook } from 'react-icons/io';
+import {
+  IoLogoGithub,
+  IoMdGlobe,
+  IoMdBook,
+  IoIosMail,
+  IoIosPin,
+  IoIosAttach
+} from 'react-icons/io';
 
 export const RelatedLinksContainer = styled.div`
   display: flex;
@@ -17,14 +24,32 @@ const RelatedLink = styled.a`
   }
 `;
 
+export const PaperLink = ({ url, children }) => (
+  <RelatedLink href={url} target="blank">
+    <IoIosAttach /> {children}
+  </RelatedLink>
+);
+
+export const LocationLink = ({ url, children }) => (
+  <RelatedLink href={url} target="blank">
+    <IoIosPin /> {children}
+  </RelatedLink>
+);
+
+export const MailLink = ({ url, children }) => (
+  <RelatedLink href={`mailto:${url}`} target="blank">
+    <IoIosMail /> {children}
+  </RelatedLink>
+);
+
 export const LiveLink = ({ url, children }) => (
-  <RelatedLink href={url}>
+  <RelatedLink href={url} target="blank">
     <IoMdGlobe /> {children}
   </RelatedLink>
 );
 
 export const DocsLink = ({ url, children }) => (
-  <RelatedLink href={url}>
+  <RelatedLink href={url} target="blank">
     <IoMdBook /> {children}
   </RelatedLink>
 );
@@ -51,6 +76,7 @@ export const NavLink = styled(Link)`
     -moz-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
     box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
     border: solid 1px #404041;
+    cursor: pointer;
   }
   &.active {
     background-color: #17b6e5;
@@ -69,6 +95,32 @@ export const LinkStyled = css`
   transition: all 300ms ease;
   height: 100%;
   &:hover {
+    cursor: pointer;
     border: solid 1px var(--grey-color);
+  }
+`;
+
+export const StaticNavLink = styled.a`
+  text-decoration: none;
+  color: #404041;
+  padding: 7px 20px;
+  margin-bottom: 10px;
+  border: solid 1px #404041;
+  transition: all 300ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover,
+  &.active {
+    -webkit-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
+    -moz-box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
+    box-shadow: 2px 2px 9px -4px rgba(71, 71, 71, 1);
+    border: solid 1px #404041;
+    cursor: pointer;
+  }
+  &.active {
+    background-color: #17b6e5;
+    color: #fff;
+    border: solid 1px #404041;
   }
 `;
