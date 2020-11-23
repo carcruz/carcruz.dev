@@ -6,27 +6,13 @@ import {
   BlogHeader,
   BlogMainContent,
   BlogFooter,
-  ReferenceText,
   NavLink,
+  LiveLink,
+  GithubLink,
+  DocsLink,
+  RelatedLinksContainer,
 } from './common';
-import { IoIosArrowBack } from "react-icons/io";
-
-export default function PageTemplate({ data: { mdx } }) {
-  return (
-    <>
-      <BlogHeader>
-        <MainHeader>{mdx.frontmatter.title}</MainHeader>
-        <ReferenceText>{mdx.frontmatter.description}</ReferenceText>
-      </BlogHeader>
-      <BlogMainContent>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </BlogMainContent>
-      <BlogFooter>
-        <NavLink to="/blog"><IoIosArrowBack />Back to all posts</NavLink>
-      </BlogFooter>
-    </>
-  );
-}
+import { IoIosArrowBack } from 'react-icons/io';
 
 export const pageQuery = graphql`
   query ProjectQuery($id: String) {
@@ -38,7 +24,41 @@ export const pageQuery = graphql`
         by
         description
         date
+        tags
+        github
+        live
+        docs
       }
     }
   }
 `;
+
+export default function PageTemplate({ data: { mdx } }) {
+  return (
+    <>
+      <BlogHeader>
+        <MainHeader>{mdx.frontmatter.title}</MainHeader>
+      </BlogHeader>
+      <RelatedLinksContainer>
+        {mdx.frontmatter.live && (
+          <LiveLink url={mdx.frontmatter.live}> Live</LiveLink>
+        )}
+        {mdx.frontmatter.github && (
+          <GithubLink url={mdx.frontmatter.github}> Github</GithubLink>
+        )}
+        {mdx.frontmatter.docs && (
+          <DocsLink url={mdx.frontmatter.docs}> Docs</DocsLink>
+        )}
+      </RelatedLinksContainer>
+      <BlogMainContent>
+        <MDXRenderer>{mdx.body}</MDXRenderer>
+      </BlogMainContent>
+      <BlogFooter>
+        <NavLink to="/projects">
+          <IoIosArrowBack />
+          Back to all projects
+        </NavLink>
+      </BlogFooter>
+    </>
+  );
+}

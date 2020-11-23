@@ -1,0 +1,38 @@
+---
+path: '/projects/colecciones'
+title: 'Colecciones Especiales'
+description: 'Interactive viewer of the Special Documents and Collections'
+by: 'Carlos Cruz'
+tags: 'JavaScript, Redux, P5'
+smallImage: '../../images/colecciones/small.png'
+live: 'https://www.banrepcultural.org/visor-colecciones/'
+github: ''
+docs: ''
+---
+
+import { ImageMDX, TagContainer, Tag } from '../../components/common';
+import Slider from 'react-slick';
+
+
+Interactive viewer of the Special Documents and Collections
+
+
+<TagContainer>
+  <Tag>JavaScript</Tag>
+  <Tag>Redux</Tag>
+  <Tag>P5</Tag>
+</TagContainer>
+
+<br>
+</br>
+<br>
+</br>
+
+<Slider dots infinite slidesToShow={1} slidesToScroll={1}>
+  <div>
+      <ImageMDX src="col-show-0.png" alt="ore" />
+  </div>
+  <div>
+      <ImageMDX src="col-show-1.png" alt="ore" />
+  </div>
+</Slider>

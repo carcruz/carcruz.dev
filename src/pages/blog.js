@@ -61,10 +61,12 @@ const Posts = () => {
     }
   `);
 
-  const rawData = data.allDevArticles.edges.map(node => node.node.article);
-  const blogs = data.allMdx.edges.map(node => {
+  const devArticles = data.allDevArticles.edges.map(node => node.node.article);
+  const blogPosts = data.allMdx.edges.map(node => {
     return { ...node.node.frontmatter, id: node.node.id };
   });
+
+  console.log(blogPosts)
 
   return (
     <>
@@ -72,8 +74,8 @@ const Posts = () => {
       {/* <SubTitle>Blog posts</SubTitle> */}
       <br></br>
       <CardsContainer>
-        {blogs &&
-          blogs.map(node => (
+        {blogPosts &&
+          blogPosts.map(node => (
             <Card key={node.id}>
               <StyledRoute to={node.path}>
                 <CardContent>
@@ -104,8 +106,8 @@ const Posts = () => {
         community
       </SubTitle>
       <CardsContainer>
-        {rawData &&
-          rawData.map(node => (
+        {devArticles &&
+          devArticles.map(node => (
             <Card key={node.id}>
               <StyledLink target="_blank" href={node.url}>
                 <CardContent>

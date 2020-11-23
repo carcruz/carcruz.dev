@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 import {
-  SubTitle,
   Tag,
   TagContainer,
   Card,
@@ -15,8 +14,11 @@ import {
   CardText,
   CardDateContainer,
   CardDate,
-  LinkStyled
+  CardContainerImage,
+  LinkStyled,
+  Image,
 } from '../components/common';
+
 
 const StyledRoute = styled(Link)`
   ${LinkStyled}
@@ -36,6 +38,13 @@ const IndexPage = () => {
               description
               path
               date
+              smallImage {
+                childImageSharp {
+                  fluid(maxWidth: 800) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
             }
           }
         }
@@ -47,28 +56,32 @@ const IndexPage = () => {
     return { ...node.node.frontmatter, id: node.node.id };
   });
 
+  console.log(projects);
+
   return (
     <>
       <SEO title="Projects" />
-      <SubTitle>Projects</SubTitle>
+      <br></br>
       <CardsContainer>
         {projects &&
           projects.map(node => (
             <Card key={node.id}>
               <StyledRoute to={node.path}>
-                <CardContent>
+                <CardContent small>
                   <CardTitle>{node.title}</CardTitle>
                   <CardText>{node.description}</CardText>
-                  <CardDateContainer>
-                    <CardDate>{node.date}</CardDate>
-                  </CardDateContainer>
                   <TagContainer>
                     {node.tags &&
-                      node.tags.map(tag => (
-                        <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
-                      ))}
+                      node.tags
+                        .split(',')
+                        .map(tag => (
+                          <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
+                        ))}
                   </TagContainer>
                 </CardContent>
+                <CardContainerImage>
+                  {node.smallImage && <Image fluidPath={node.smallImage.childImageSharp.fluid} />}
+                </CardContainerImage>
               </StyledRoute>
             </Card>
           ))}
