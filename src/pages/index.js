@@ -8,19 +8,18 @@ import {
   GithubLink,
   MailLink,
   LocationLink,
-  StaticNavLink
+  StaticNavLink,
 } from '../components/common';
 
 const StaticLinksContainer = styled.nav`
   display: flex;
   justify-content: left;
-  &> a:nth-child(2) {
+  & > a:nth-child(2) {
     margin-left: 30px;
   }
 `;
 
 const IndexPage = () => {
-
   return (
     <>
       <SEO title="Home" />
@@ -30,19 +29,35 @@ const IndexPage = () => {
         back-end implementations and SaaS. I have worked in scientific and
         research settings, as well as in myriad of data-driven industries.
       </MainText>
+      <p>
+        I am currently a full time contractor as a Web and Software Engineer at{' '}
+        <a href="https://trinetx.com/" target="_blank" rel="noreferrer">
+          TriNetX
+        </a>
+        .
+      </p>
       <br />
       <RelatedLinksContainer>
-        <LocationLink url="https://goo.gl/maps/C29XqxWtDJixzrQX9"> Costa Rica</LocationLink>
+        <LocationLink url="https://goo.gl/maps/C29XqxWtDJixzrQX9">
+          {' '}
+          Costa Rica
+        </LocationLink>
         <MailLink url="me@carcruzcast.com"> me@carcruzcast.com</MailLink>
         <GithubLink url="https://github.com/carcruz"> carcruz</GithubLink>
       </RelatedLinksContainer>
       <br />
       <br />
       <StaticLinksContainer>
-        <StaticNavLink href="https://carcruz.s3-us-west-2.amazonaws.com/CV.pdf" target="blank">
+        <StaticNavLink
+          href="https://carcruz.s3-us-west-2.amazonaws.com/CV.pdf"
+          target="blank"
+        >
           CV
         </StaticNavLink>
-        <StaticNavLink href="https://carcruz.s3-us-west-2.amazonaws.com/Resume.pdf" target="blank">
+        <StaticNavLink
+          href="https://carcruz.s3-us-west-2.amazonaws.com/Resume.pdf"
+          target="blank"
+        >
           Resume
         </StaticNavLink>
       </StaticLinksContainer>

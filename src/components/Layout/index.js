@@ -10,7 +10,7 @@ const PageContainer = styled.main`
   position: relative;
   min-height: 100vh;
   @media only screen and (max-width: 1520px) {
-    margin: 0 40px;
+    margin: 0 30px;
   }
 `;
 

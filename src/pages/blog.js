@@ -66,12 +66,9 @@ const Posts = () => {
     return { ...node.node.frontmatter, id: node.node.id };
   });
 
-  console.log(blogPosts)
-
   return (
     <>
       <SEO title="Blog" />
-      {/* <SubTitle>Blog posts</SubTitle> */}
       <br></br>
       <CardsContainer>
         {blogPosts &&

@@ -17,7 +17,6 @@ import {
   Image,
 } from '../components/common';
 
-
 const StyledRoute = styled(Link)`
   ${LinkStyled}
 `;
@@ -25,7 +24,10 @@ const StyledRoute = styled(Link)`
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query getProjects {
-      allMdx(filter: { frontmatter: { path: { regex: "/projects/" } } }) {
+      allMdx(
+        filter: { frontmatter: { path: { regex: "/projects/" } } }
+        sort: { order: ASC, fields: [frontmatter___order] }
+      ) {
         edges {
           node {
             id
@@ -54,8 +56,6 @@ const IndexPage = () => {
     return { ...node.node.frontmatter, id: node.node.id };
   });
 
-  console.log(projects);
-
   return (
     <>
       <SEO title="Projects" />
@@ -78,7 +78,9 @@ const IndexPage = () => {
                   </TagContainer>
                 </CardContent>
                 <CardContainerImage>
-                  {node.smallImage && <Image fluidPath={node.smallImage.childImageSharp.fluid} />}
+                  {node.smallImage && (
+                    <Image fluidPath={node.smallImage.childImageSharp.fluid} />
+                  )}
                 </CardContainerImage>
               </StyledRoute>
             </Card>

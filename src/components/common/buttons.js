@@ -7,11 +7,14 @@ import {
   IoMdBook,
   IoIosMail,
   IoIosPin,
-  IoIosAttach
+  IoIosAttach,
 } from 'react-icons/io';
 
 export const RelatedLinksContainer = styled.div`
   display: flex;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const RelatedLink = styled.a`
@@ -22,40 +25,43 @@ const RelatedLink = styled.a`
   & > svg {
     margin-right: 5px;
   }
+  @media only screen and (max-width: 600px) {
+    margin: 10px 0;
+  }
 `;
 
 export const PaperLink = ({ url, children }) => (
-  <RelatedLink href={url} target="blank">
+  <RelatedLink href={url} target="_blank" rel="noreferrer">
     <IoIosAttach /> {children}
   </RelatedLink>
 );
 
 export const LocationLink = ({ url, children }) => (
-  <RelatedLink href={url} target="blank">
+  <RelatedLink href={url} target="_blank" rel="noreferrer">
     <IoIosPin /> {children}
   </RelatedLink>
 );
 
 export const MailLink = ({ url, children }) => (
-  <RelatedLink href={`mailto:${url}`} target="blank">
+  <RelatedLink href={`mailto:${url}`} target="_blank" rel="noreferrer">
     <IoIosMail /> {children}
   </RelatedLink>
 );
 
 export const LiveLink = ({ url, children }) => (
-  <RelatedLink href={url} target="blank">
+  <RelatedLink href={url} target="_blank" rel="noreferrer">
     <IoMdGlobe /> {children}
   </RelatedLink>
 );
 
 export const DocsLink = ({ url, children }) => (
-  <RelatedLink href={url} target="blank">
+  <RelatedLink href={url} target="_blank" rel="noreferrer">
     <IoMdBook /> {children}
   </RelatedLink>
 );
 
 export const GithubLink = ({ url, children }) => (
-  <RelatedLink href={url} target="blank">
+  <RelatedLink href={url} target="_blank" rel="noreferrer">
     <IoLogoGithub /> {children}
   </RelatedLink>
 );

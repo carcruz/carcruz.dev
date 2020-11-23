@@ -8,7 +8,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/content`,
       },
@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        component: require.resolve("./src/components/Layout/index.js"),
+        component: require.resolve('./src/components/Layout/index.js'),
       },
     },
     `gatsby-plugin-styled-components`,
@@ -44,10 +44,10 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-dev",
+      resolve: 'gatsby-source-dev',
       options: {
-        username: 'carcruz'
-      }
+        username: 'carcruz',
+      },
     },
     `gatsby-transformer-sharp`,
     {

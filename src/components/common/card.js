@@ -11,7 +11,7 @@ export const CardsContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 15px;
   grid-row-gap: 15px;
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 1024px) {
     grid-template-columns: repeat(1, 1fr);
     grid-row-gap: 35px;
   }
@@ -20,6 +20,10 @@ export const CardsContainer = styled.div`
 export const CardContent = styled.div`
   width: ${props => (props.small ? '50%' : '100%')};
   padding: 15px 20px;
+  @media only screen and (max-width: 700px) {
+    width: ${props => (props.small ? '100%' : '100%')};
+    padding: 5px 10px;
+  }
 `;
 
 export const CardTitle = styled.h3`
@@ -48,6 +52,13 @@ export const CardContainerImage = styled.div`
   height: 100%;
   width: 50%;
   overflow: hidden;
+  & .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  @media only screen and (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export const CardDateContainer = styled.div`
