@@ -56,8 +56,6 @@ const IndexPage = () => {
     return { ...node.node.frontmatter, id: node.node.id };
   });
 
-  console.log(projects);
-
   return (
     <>
       <SEO title="Projects" />

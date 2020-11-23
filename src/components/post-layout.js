@@ -9,7 +9,7 @@ import {
   ReferenceText,
   NavLink,
 } from './common';
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack } from 'react-icons/io';
 
 export default function PageTemplate({ data: { mdx } }) {
   return (
@@ -22,7 +22,10 @@ export default function PageTemplate({ data: { mdx } }) {
         <MDXRenderer>{mdx.body}</MDXRenderer>
       </BlogMainContent>
       <BlogFooter>
-        <NavLink to="/blog"><IoIosArrowBack />Back to all posts</NavLink>
+        <NavLink to="/blog">
+          <IoIosArrowBack />
+          Back to all posts
+        </NavLink>
       </BlogFooter>
     </>
   );

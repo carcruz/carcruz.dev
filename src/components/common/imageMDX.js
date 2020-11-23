@@ -17,12 +17,11 @@ export const ImageMDX = ({ src, alt }) => {
       }
     }
   `);
-  console.log({src, alt, allImageSharp})
   const image = allImageSharp.edges.find(
     edge => edge.node.fluid.originalName === src
   );
   if (!image) {
-    return "no image";
+    return 'no image';
   }
   return <Img fluid={image.node.fluid} alt={alt} />;
 };

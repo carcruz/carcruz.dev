@@ -68,8 +68,6 @@ class Rect extends Component {
 }
 
 const AnimatedLogo = ({ dims, config = defaultConfig }) => {
-  console.log(dims)
-  // if (!dims.width) return null;
   return (
     <StyledLink to="/">
       <SVGContainer width={dims.width} height={config.h}>

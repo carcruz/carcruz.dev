@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const BlogMainContent = styled.section`
@@ -12,4 +11,4 @@ export const BlogHeader = styled.div`
 
 export const BlogFooter = styled.div`
   margin-top: 60px;
-`
+`;

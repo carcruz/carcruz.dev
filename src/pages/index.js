@@ -31,7 +31,7 @@ const IndexPage = () => {
       </MainText>
       <p>
         I am currently a full time contractor as a Web and Software Engineer at{' '}
-        <a href="https://trinetx.com/" target="_blank">
+        <a href="https://trinetx.com/" target="_blank" rel="noreferrer">
           TriNetX
         </a>
         .
