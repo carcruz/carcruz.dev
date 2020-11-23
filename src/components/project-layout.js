@@ -10,6 +10,7 @@ import {
   LiveLink,
   GithubLink,
   DocsLink,
+  PaperLink,
   RelatedLinksContainer,
 } from './common';
 import { IoIosArrowBack } from 'react-icons/io';
@@ -28,6 +29,7 @@ export const pageQuery = graphql`
         github
         live
         docs
+        paper
       }
     }
   }
@@ -48,6 +50,9 @@ export default function PageTemplate({ data: { mdx } }) {
         )}
         {mdx.frontmatter.docs && (
           <DocsLink url={mdx.frontmatter.docs}> Docs</DocsLink>
+        )}
+        {mdx.frontmatter.paper && (
+          <PaperLink url={mdx.frontmatter.paper}> Related publication</PaperLink>
         )}
       </RelatedLinksContainer>
       <BlogMainContent>
