@@ -10,10 +10,10 @@ export const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 15px;
-  grid-row-gap: 15px;
+  grid-row-gap: 60px;
   @media only screen and (max-width: 1024px) {
     grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 35px;
+    grid-row-gap: 45px;
   }
 `;
 

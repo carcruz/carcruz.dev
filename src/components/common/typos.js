@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const MainText = styled.p`
   font-size: 18px;
   line-height: 1.5;
-  max-width: 720px;
 `;
 
 export const SubTitle = styled.h2`
@@ -35,6 +34,5 @@ export const Tag = styled.span`
   color: #fff;
   margin-right: 7px;
   font-size: 12px;
-  /* font-weight: 100; */
   font-family: 'Inconsolata';
 `;
