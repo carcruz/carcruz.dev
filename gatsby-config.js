@@ -63,11 +63,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingIds: [
-          'G-HM1RF5XVWJ',
-        ],
+        trackingId: 'G-HM1RF5XVWJ',
       },
     },
   ],
