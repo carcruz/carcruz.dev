@@ -38,7 +38,6 @@ const IndexPage = () => {
         <a href="https://trinetx.com/" target="_blank" rel="noreferrer">
           TriNetX.
         </a>
-        .
       </MainText>
       <br />
       <RelatedLinksContainer>
