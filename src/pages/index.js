@@ -32,6 +32,16 @@ const HomePage = () => (
       commercial, scientific, and research purposes, and I have worked in
       diverse data-driven industries, from IoT to Healthcare.
     </MainText>
+    <MainText>
+      Currently I am a Web Developer at{' '}
+      <a href="https://www.opentargets.org/" target="_blank" rel="noreferrer">
+        Open Targets.
+      </a>{' '}
+      Part of the{' '}
+      <a href="https://www.ebi.ac.uk/" target="_blank" rel="noreferrer">
+        European Bioinformatics Institute
+      </a>
+    </MainText>
     <br />
     <RelatedLinksContainer>
       <LocationLink url="https://goo.gl/maps/C29XqxWtDJixzrQX9">
