@@ -3,8 +3,9 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: `Carlos Cruz`,
-    description: `I'm a software engineer, who worked in scientific and research settings`,
-    author: `@carcruz`,
+    description: `Software engineer, who worked in scientific and research settings`,
+    author: `@_crcruz`,
+    siteURL: 'https://www.carcruz.dev',
   },
   plugins: [
     {
@@ -54,10 +55,10 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
-        short_name: `starter`,
+        short_name: `carcuz`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#17b6e5`,
+        theme_color: `#17b6e5`,
         display: `minimal-ui`,
         icon: `src/images/fav-icon.png`, // This path is relative to the root of the site.
       },

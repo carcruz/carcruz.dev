@@ -14,6 +14,7 @@ import {
   RelatedLinksContainer,
 } from './common';
 import { IoIosArrowBack } from 'react-icons/io';
+import Seo from './seo';
 
 export const pageQuery = graphql`
   query ProjectQuery($id: String) {
@@ -30,6 +31,13 @@ export const pageQuery = graphql`
         live
         docs
         paper
+        smallImage {
+          childImageSharp {
+            fixed {
+              src
+            }
+          }
+        }
       }
     }
   }
@@ -38,6 +46,11 @@ export const pageQuery = graphql`
 export default function PageTemplate({ data: { mdx } }) {
   return (
     <>
+      <Seo
+        description={mdx.frontmatter.description}
+        title={mdx.frontmatter.title}
+        image={mdx.frontmatter.smallImage.childImageSharp.fixed.src}
+      />
       <BlogHeader>
         <MainHeader>{mdx.frontmatter.title}</MainHeader>
       </BlogHeader>
