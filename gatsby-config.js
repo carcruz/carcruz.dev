@@ -5,6 +5,7 @@ module.exports = {
     title: `Carlos Cruz`,
     description: `Software engineer, who worked in scientific and research settings`,
     author: `@_crcruz`,
+    siteURL: 'https://www.carcruz.dev',
   },
   plugins: [
     {
