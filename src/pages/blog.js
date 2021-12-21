@@ -1,7 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import { Link } from 'gatsby';
 import {
   SubTitle,
@@ -68,7 +68,7 @@ const Posts = () => {
 
   return (
     <>
-      <SEO title="Blog" />
+      <Seo title="Blog" />
       <br></br>
       <CardsContainer>
         {blogPosts &&

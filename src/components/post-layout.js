@@ -10,10 +10,12 @@ import {
   NavLink,
 } from './common';
 import { IoIosArrowBack } from 'react-icons/io';
+import Seo from './seo';
 
 export default function PageTemplate({ data: { mdx } }) {
   return (
     <>
+      <Seo title={mdx.frontmatter.title} description={mdx.frontmatter.description} />
       <BlogHeader>
         <MainHeader>{mdx.frontmatter.title}</MainHeader>
         <ReferenceText>{mdx.frontmatter.description}</ReferenceText>

@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import styled from 'styled-components';
 import {
   MainHeader,
@@ -21,7 +21,7 @@ const StaticLinksContainer = styled.nav`
 
 const HomePage = () => (
   <>
-    <SEO title="Home" />
+    <Seo title="Home" />
     <MainHeader>Carlos Cruz</MainHeader>
     <MainText>
       Hi! I’m Carlos Cruz, a front-end web engineer with a curiosity for
