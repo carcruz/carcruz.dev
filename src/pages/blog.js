@@ -109,7 +109,7 @@ const Posts = () => {
         {devArticles &&
           devArticles.map((node) => (
             <Card key={node.id}>
-              <StyledLink target="_blank" href={node.url}>
+              <StyledLink target="_blank" href={node.url} rel="noreferrer">
                 <CardContent>
                   <CardTitle>{node.title}</CardTitle>
                   <CardText>{node.description}</CardText>
