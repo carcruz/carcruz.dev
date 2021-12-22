@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const Card = styled.div`
   width: 100%;
   height: 150px;
+  @media only screen and (max-width: 700px) {
+    height: auto;
+  }
 `;
 
 export const CardsContainer = styled.div`
@@ -18,10 +21,10 @@ export const CardsContainer = styled.div`
 `;
 
 export const CardContent = styled.div`
-  width: ${props => (props.small ? '50%' : '100%')};
+  width: ${(props) => (props.small ? '50%' : '100%')};
   padding: 15px 20px;
   @media only screen and (max-width: 700px) {
-    width: ${props => (props.small ? '100%' : '100%')};
+    width: ${(props) => (props.small ? '100%' : '100%')};
     padding: 5px 10px;
   }
 `;
@@ -31,8 +34,11 @@ export const CardTitle = styled.h3`
   margin-top: 0px;
   color: var(--cta-color);
   text-overflow: ellipsis;
-  white-space: nowrap;
   overflow: hidden;
+  height: 28px;
+  @media only screen and (max-width: 700px) {
+    height: auto;
+  }
 `;
 
 export const CardText = styled.p`
@@ -46,6 +52,11 @@ export const CardText = styled.p`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  @media only screen and (max-width: 700px) {
+    text-overflow: none;
+    display: block;
+    height: auto;
+  }
 `;
 
 export const CardContainerImage = styled.div`

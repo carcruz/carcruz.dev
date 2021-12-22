@@ -20,10 +20,20 @@ import moment from 'moment';
 
 const StyledLink = styled.a`
   ${LinkStyled}
+  @media only screen and (max-width: 700px) {
+    &:hover {
+      border: solid 1px white;
+    }
+  }
 `;
 
 const StyledRoute = styled(Link)`
   ${LinkStyled}
+  @media only screen and (max-width: 700px) {
+    &:hover {
+      border: solid 1px white;
+    }
+  }
 `;
 
 const Posts = () => {
