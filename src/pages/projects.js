@@ -19,6 +19,11 @@ import {
 
 const StyledRoute = styled(Link)`
   ${LinkStyled}
+  @media only screen and (max-width: 700px) {
+    &:hover {
+      border: solid 1px white;
+    }
+  }
 `;
 
 const IndexPage = () => {
@@ -52,7 +57,7 @@ const IndexPage = () => {
     }
   `);
 
-  const projects = data.allMdx.edges.map(node => {
+  const projects = data.allMdx.edges.map((node) => {
     return { ...node.node.frontmatter, id: node.node.id };
   });
 
@@ -62,7 +67,7 @@ const IndexPage = () => {
       <br></br>
       <CardsContainer>
         {projects &&
-          projects.map(node => (
+          projects.map((node) => (
             <Card key={node.id}>
               <StyledRoute to={node.path}>
                 <CardContent small>
@@ -72,7 +77,7 @@ const IndexPage = () => {
                     {node.tags &&
                       node.tags
                         .split(',')
-                        .map(tag => (
+                        .map((tag) => (
                           <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
                         ))}
                   </TagContainer>

@@ -44,9 +44,9 @@ const HomePage = () => (
     </MainText>
     <br />
     <RelatedLinksContainer>
-      <LocationLink url="https://goo.gl/maps/C29XqxWtDJixzrQX9">
+      <LocationLink url="https://goo.gl/maps/RxWushYKYkmoDMVj9">
         {' '}
-        Costa Rica
+        Cambridge, United Kingdom
       </LocationLink>
       <MailLink url="me@carcruzcast.com"> me@carcruzcast.com</MailLink>
       <GithubLink url="https://github.com/carcruz"> carcruz</GithubLink>

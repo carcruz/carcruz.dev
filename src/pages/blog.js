@@ -20,10 +20,20 @@ import moment from 'moment';
 
 const StyledLink = styled.a`
   ${LinkStyled}
+  @media only screen and (max-width: 700px) {
+    &:hover {
+      border: solid 1px white;
+    }
+  }
 `;
 
 const StyledRoute = styled(Link)`
   ${LinkStyled}
+  @media only screen and (max-width: 700px) {
+    &:hover {
+      border: solid 1px white;
+    }
+  }
 `;
 
 const Posts = () => {
@@ -43,27 +53,30 @@ const Posts = () => {
           }
         }
       }
-      allMdx(filter: { frontmatter: { path: { regex: "/blog/" } } }) {
-        edges {
-          node {
-            id
-            frontmatter {
-              tags
-              blog
-              title
-              description
-              path
-              date
-            }
+      allMdx(
+        filter: { frontmatter: { path: { regex: "/blog/" } } }
+        sort: { order: DESC, fields: [frontmatter___order] }
+      ) {
+        nodes {
+          id
+          frontmatter {
+            tags
+            blog
+            title
+            description
+            path
+            date
           }
         }
       }
     }
   `);
 
-  const devArticles = data.allDevArticles.edges.map(node => node.node.article);
-  const blogPosts = data.allMdx.edges.map(node => {
-    return { ...node.node.frontmatter, id: node.node.id };
+  const devArticles = data.allDevArticles.edges.map(
+    (node) => node.node.article
+  );
+  const blogPosts = data.allMdx.nodes.map((node) => {
+    return { ...node.frontmatter, id: node.id };
   });
 
   return (
@@ -72,7 +85,7 @@ const Posts = () => {
       <br></br>
       <CardsContainer>
         {blogPosts &&
-          blogPosts.map(node => (
+          blogPosts.map((node) => (
             <Card key={node.id}>
               <StyledRoute to={node.path}>
                 <CardContent>
@@ -85,7 +98,7 @@ const Posts = () => {
                     {node.tags &&
                       node.tags
                         .split(',')
-                        .map(tag => (
+                        .map((tag) => (
                           <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
                         ))}
                   </TagContainer>
@@ -104,9 +117,9 @@ const Posts = () => {
       </SubTitle>
       <CardsContainer>
         {devArticles &&
-          devArticles.map(node => (
+          devArticles.map((node) => (
             <Card key={node.id}>
-              <StyledLink target="_blank" href={node.url}>
+              <StyledLink target="_blank" href={node.url} rel="noreferrer">
                 <CardContent>
                   <CardTitle>{node.title}</CardTitle>
                   <CardText>{node.description}</CardText>
@@ -116,7 +129,7 @@ const Posts = () => {
                     </CardDate>
                   </CardDateContainer>
                   <TagContainer>
-                    {node.tags.map(tag => (
+                    {node.tags.map((tag) => (
                       <Tag key={`${node.id}-tag-${tag}`}>{tag}</Tag>
                     ))}
                   </TagContainer>
