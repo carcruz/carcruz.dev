@@ -24,8 +24,8 @@ const HomePage = () => (
     <Seo title="Home" />
     <MainHeader>Carlos Cruz</MainHeader>
     <MainText>
-      Hi! I’m Carlos Cruz, a front-end web engineer with a curiosity for
-      back-end implementations and SaaS.
+      Hi! I’m Carlos Cruz, an experienced full-stack engineer with a curiosity
+      for front-end implementations and SaaS.
     </MainText>
     <MainText>
       I enjoy building data visualizations and modern platforms tools for
@@ -33,7 +33,7 @@ const HomePage = () => (
       diverse data-driven industries, from IoT to Healthcare.
     </MainText>
     <MainText>
-      Currently I am a Web Developer at{' '}
+      Currently I am employed as Senior Web Developer and front-end Lead at{' '}
       <a href="https://www.opentargets.org/" target="_blank" rel="noreferrer">
         Open Targets.
       </a>{' '}
@@ -60,12 +60,12 @@ const HomePage = () => (
       >
         CV
       </StaticNavLink>
-      <StaticNavLink
+      {/* <StaticNavLink
         href="https://carcruz.s3-us-west-2.amazonaws.com/resume-carlos-cruz.pdf"
         target="blank"
       >
         Resume
-      </StaticNavLink>
+      </StaticNavLink> */}
     </StaticLinksContainer>
   </>
 );
