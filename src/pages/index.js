@@ -9,6 +9,10 @@ import {
   MailLink,
   LocationLink,
   StaticNavLink,
+  SubTitle,
+  LinkText,
+  StrongText,
+  SubTitle2,
 } from '../components/common';
 
 const StaticLinksContainer = styled.nav`
@@ -19,38 +23,71 @@ const StaticLinksContainer = styled.nav`
   }
 `;
 
+const StyledRelatedLinksContainer = styled(RelatedLinksContainer)`
+  margin-bottom: 30px;
+`;
+
+const ProfileContainer = styled.div`
+  margin-bottom: 75px;
+  margin-top: 60px;
+`;
+
 const HomePage = () => (
   <>
     <Seo title="Home" />
-    <MainHeader>Carlos Cruz</MainHeader>
+
+    <ProfileContainer>
+      <MainHeader>Carlos Cruz</MainHeader>
+      <SubTitle>Senior Front-end Engineer & Team Lead</SubTitle>
+
+      <StyledRelatedLinksContainer>
+        <LocationLink url="https://goo.gl/maps/RxWushYKYkmoDMVj9">
+          {' '}
+          Cambridge, United Kingdom
+        </LocationLink>
+        <MailLink url="me@carcruzcast.com"> me@carcruzcast.com</MailLink>
+        <GithubLink url="https://github.com/carcruz"> carcruz</GithubLink>
+      </StyledRelatedLinksContainer>
+    </ProfileContainer>
     <MainText>
-      Hi! I’m Carlos Cruz, an experienced full-stack engineer with a curiosity
-      for front-end implementations and SaaS.
+      I'm Carlos Cruz, a full-stack engineer and front-end team lead
+      specializing in data centered applications and data visualization. I develop
+      scalable web platforms that transform complex genomics data into
+      actionable insights for drug discovery and medical research.
     </MainText>
     <MainText>
-      I enjoy building data visualizations and modern platforms tools for
-      commercial, scientific, and research purposes, and I have worked in
-      diverse data-driven industries, from IoT to Healthcare.
-    </MainText>
-    <MainText>
-      Currently I am employed as Senior Web Developer and front-end Lead at{' '}
-      <a href="https://www.opentargets.org/" target="_blank" rel="noreferrer">
-        Open Targets.
-      </a>{' '}
-      Part of the{' '}
-      <a href="https://www.ebi.ac.uk/" target="_blank" rel="noreferrer">
+      Currently, I lead the front-end team at{' '}
+      <LinkText href="https://www.opentargets.org/">Open Targets</LinkText> (
+      <LinkText href="https://www.ebi.ac.uk/">
         European Bioinformatics Institute
-      </a>
+      </LinkText>
+      ), where our platforms serve{' '}
+      <StrongText>50,000+ researchers globally</StrongText>, each month. With
+      over 10 years of experience spanning healthcare, IoT, and scientific
+      computing, I've published research in{' '}
+      <LinkText href="https://academic.oup.com/bioinformatics">
+        Oxford Bioinformatics
+      </LinkText>{' '}
+      and built production systems supporting critical drug discovery pipelines.
     </MainText>
     <br />
-    <RelatedLinksContainer>
-      <LocationLink url="https://goo.gl/maps/RxWushYKYkmoDMVj9">
+    <SubTitle2>Recent Highlights</SubTitle2>
+    <MainText>
+      <LinkText href="https://academic.oup.com/bioinformatics/article/41/4/btaf070/8010255">
         {' '}
-        Cambridge, United Kingdom
-      </LocationLink>
-      <MailLink url="me@carcruzcast.com"> me@carcruzcast.com</MailLink>
-      <GithubLink url="https://github.com/carcruz"> carcruz</GithubLink>
-    </RelatedLinksContainer>
+        Published Research (2025)
+      </LinkText>{' '}
+      - Lead author of "Associations on the Fly" in Oxford Bioinformatics,
+      developing breakthrough tools for systematic drug target identification.
+    </MainText>
+    <MainText>
+      <LinkText href="https://academic.oup.com/bioinformatics/article/41/4/btaf070/8010255">
+        {' '}
+        Technical Leadership
+      </LinkText>{' '}
+      - Led migration to modern Turborepo architecture, reducing build times by
+      60% while enabling AI integration across research platforms.
+    </MainText>
     <br />
     <br />
     <StaticLinksContainer>

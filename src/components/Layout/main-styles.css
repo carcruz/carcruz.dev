@@ -19,7 +19,7 @@ html {
   box-sizing: border-box;
 }
 
-h2, h4 {
+h2, h3, h4 {
   font-family: 'Inconsolata', monospace !important;
   color: var(--cta-color);
   font-weight: 400;
