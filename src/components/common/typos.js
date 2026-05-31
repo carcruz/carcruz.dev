@@ -26,7 +26,7 @@ export const SubTitle2 = styled.h3`
 `;
 
 export const MainHeader = styled.div`
-  color: #000;
+  color: var(--navy);
   font-size: 34px;
   font-family: 'Inconsolata';
 `;

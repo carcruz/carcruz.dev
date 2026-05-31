@@ -4,11 +4,16 @@ import styled from 'styled-components';
 import Navbar from './Navbar';
 
 const HeaderLayout = styled.header`
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #f8fafc;
   display: flex;
   justify-content: center;
-  padding-top: 3em;
-  padding-bottom: 60px;
-  text-align: center;
+  align-items: center;
+  height: var(--header-height);
+  padding-top: 30px;
   width: 100%;
 `;
 

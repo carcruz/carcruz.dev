@@ -1,44 +1,52 @@
 ---
 path: '/projects/open-targets'
-title: 'OpenTargets Maintainer'
-description: 'Lead the front-end team in the maintainance and development wep application solutions'
-by: 'Carlos Cruz'
-tags: 'React, Typescript, GraphQL, GCP'
+title: 'Open Targets Platform'
+description: 'Senior Frontend Engineer and Team Lead driving architecture and data visualization for a global drug discovery platform.'
+by: 'Carlos Cruz-Castillo'
+tags: 'React, TypeScript, GraphQL, D3.js'
 smallImage: '../../images/open-targets/small.png'
-live: 'https://www.opentargets.org/'
+live: 'https://platform.opentargets.org'
 github: 'https://github.com/opentargets/ot-ui-apps/pulls?q=is%3Apr+author%3Acarcruz+is%3Aclosed'
 docs: ''
 paper: ''
-order: 0
+order: 1
+categories: 'Research, AI, Backend'
 ---
 
 import { ImageMDX, TagContainer, Tag } from '../../components/common';
 import Slider from 'react-slick';
 
-As Open Targets core maintainer, I have collaborated with the open-source community and a multidisciplinary team to develop software
-that helps the systematic drug target identification and prioritization using genetics and genomics data.
+The [Open Targets Platform](https://platform.opentargets.org) is a public-private partnership hosted at EMBL-EBI that systematically links genetic and genomic evidence to drug targets. The platform serves 50,000+ researchers globally, covering six entity types — Targets, Diseases, Drugs, Variants, Studies, and Credible Sets — with 15M+ target-disease associations from 20+ data sources.
 
-More of my contributions are related to the Typescript/React-based [UI web applications](https://github.com/opentargets/ot-ui-apps) (development and maintenance). I have also gained
-experience in back-end technologies, developing a production running API service using NodeJS, OpenAi, and Google Cloud. [OT-AI-API](https://github.com/opentargets/ot-ai-api)
+As Senior Frontend Engineer and Team Lead, I own the frontend architecture of [`ot-ui-apps`](https://github.com/opentargets/ot-ui-apps), the Turbo monorepo that powers the platform UI, and lead a cross-functional engineering team.
 
 ### Role
 
-Lead the front-end development team on tasks assignments, and training of new members
+**Senior Frontend Engineer & Team Lead** — responsible for frontend architecture decisions, team direction, code reviews, and onboarding of new engineers.
 
-### Achievements
+### Key Contributions
 
-- Design and developr a core visualization tool (Associations on the Fly UI) that aims to improve the user capabilities to explore open targets generated data - [OT blob post](https://blog.opentargets.org/open-targets-platform-23-09-release/#aotf)
-- Update the UI infrastructure to manage multiple applications and libraries using a monorepo (turborepo) - [OT blog post](https://blog.opentargets.org/next-steps-in-our-frontend-architecture-monorepo/)
-- Integrate a state management tool to develop a literature UI component
-- Refactor genetics application codebase to a moderan standar GraphQL/React application
+**Monorepo architecture** — Migrated the platform frontend to a Turbo monorepo, consolidating multiple standalone applications and shared libraries into a unified, scalable codebase. — [blog post](https://blog.opentargets.org/next-steps-in-our-frontend-architecture-monorepo/)
+
+**Biome v2 migration** — Led the replacement of ESLint and Prettier with Biome across the monorepo, unifying linting and formatting tooling for the entire team.
+
+**Data visualization widgets** — Designed and developed core platform visualizations, including the baseline expression heatmap, using React and D3.js.
+
+**OT-AI-API** — Built a production API service ([ot-ai-api](https://github.com/opentargets/ot-ai-api)) using Node.js, OpenAI, and Google Cloud to power AI-assisted features in the platform.
+
+**Literature component** — Integrated state management to develop a literature mining UI component, surfacing relevant publications alongside target-disease evidence.
 
 <br></br>
 
 <TagContainer>
-  <Tag>JavaScript</Tag>
+  <Tag>TypeScript</Tag>
   <Tag>React</Tag>
-  <Tag>Redux</Tag>
-  <Tag>D3js</Tag>
+  <Tag>D3.js</Tag>
+  <Tag>Apollo Client</Tag>
+  <Tag>GraphQL</Tag>
+  <Tag>Vite</Tag>
+  <Tag>Turbo</Tag>
+  <Tag>GCP</Tag>
 </TagContainer>
 
 <br></br>
@@ -46,13 +54,13 @@ Lead the front-end development team on tasks assignments, and training of new me
 
 <Slider dots infinite slidesToShow={1} slidesToScroll={1}>
   <div>
-    <ImageMDX src="ot_2.png" alt="ore" />
+    <ImageMDX src="ot_2.png" alt="Open Targets Platform UI" />
   </div>
   <div>
-    <ImageMDX src="ot_1.png" alt="ore" />
+    <ImageMDX src="ot_1.png" alt="Open Targets Platform data visualization" />
   </div>
   <div>
-    <ImageMDX src="ot.png" alt="ore" />
+    <ImageMDX src="ot.png" alt="Open Targets Platform overview" />
   </div>
 </Slider>
 

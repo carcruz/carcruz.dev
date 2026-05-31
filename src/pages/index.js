@@ -37,8 +37,8 @@ const HomePage = () => (
     <Seo title="Home" />
 
     <ProfileContainer>
-      <MainHeader>Carlos Cruz</MainHeader>
-      <SubTitle>Senior Front-end Engineer & Team Lead</SubTitle>
+      <MainHeader>Carlos Cruz-Castillo</MainHeader>
+      <SubTitle>Senior Software Engineer & Team Lead</SubTitle>
 
       <StyledRelatedLinksContainer>
         <LocationLink url="https://goo.gl/maps/RxWushYKYkmoDMVj9">
@@ -50,10 +50,11 @@ const HomePage = () => (
       </StyledRelatedLinksContainer>
     </ProfileContainer>
     <MainText>
-      I'm Carlos Cruz, a full-stack engineer and front-end team lead
-      specializing in data centered applications and data visualization. I develop
-      scalable web platforms that transform complex genomics data into
-      actionable insights for drug discovery and medical research.
+      I'm Carlos Cruz-Castillo, a full-stack software engineer and team lead
+      specializing in data-centred applications and data visualization. I build
+      across domains — from genomics and drug discovery to IoT, smart cities,
+      and AI-powered tooling — bringing the same focus on usability and
+      engineering quality to each.
     </MainText>
     <MainText>
       Currently, I lead the front-end team at{' '}

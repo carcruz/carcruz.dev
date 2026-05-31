@@ -2,65 +2,54 @@
 path: '/projects/associations-on-the-fly'
 title: 'Associations on the Fly'
 description: 'Interactive tool for systematic drug target identification and prioritization using real-time evidence weighting.'
-by: 'Carlos Cruz'
-tags: 'React, TypeScript, D3js, Python, Research'
+by: 'Carlos Cruz-Castillo'
+tags: 'React, TypeScript, D3.js'
 smallImage: '../../images/associations-otf/small.png'
 live: 'https://platform.opentargets.org/evidence'
 github: 'https://github.com/opentargets/ot-ui-apps'
 docs: 'https://platform-docs.opentargets.org/evidence#associations-on-the-fly'
 paper: 'https://doi.org/10.1093/bioinformatics/btaf070'
 order: 0
+categories: 'Research, Visualization'
 ---
 
 import { ImageMDX, TagContainer, Tag } from '../../components/common';
 import Slider from 'react-slick';
 
-Associations on the Fly is a breakthrough interactive tool that enables pharmaceutical researchers to dynamically adjust evidence weights when prioritizing drug targets. Published as lead author in Oxford Bioinformatics (2024), this tool processes 7.8 million target-disease associations from 20+ data sources, allowing real-time recalculation and visualization of association scores.
-
-The tool addresses critical limitations in existing target prioritization workflows by providing researchers with the flexibility to weight evidence according to their specific research contexts and therapeutic areas.
+Associations on the Fly is an interactive React tool built for the Open Targets Platform that lets pharmaceutical researchers dynamically adjust evidence weights when prioritizing drug targets. Published as lead author in Oxford Bioinformatics (2024), the tool enables real-time recalculation and visualization of association scores across 7.8 million target-disease associations from 20+ data sources.
 
 ### Role
 
-**Lead Developer & Research Lead** - Responsible for conceptualization, methodology design, software architecture, full-stack development, and validation of the entire system.
+**Lead Author & React Component Lead** — I led the conceptualization, user research, and design of the interactive component, and drove the publication. The broader platform architecture and the backend were built by the Open Targets engineering team.
 
 ### Technical Architecture
 
-- **Frontend**: React/TypeScript with real-time scoring framework
-- **Backend**: Python API for association recalculation and data processing  
-- **Data Processing**: 7.8M target-disease associations from 20+ evidence sources
-- **Performance**: Instant recalculation and visualization updates
-- **Integration**: Seamlessly integrated into Open Targets Platform serving 50k+ monthly users
+- **Frontend**: React/TypeScript component with real-time scoring interface (my primary contribution)
+- **Backend**: Scala API handling association recalculation, backed by a ClickHouse data instance
+- **Data**: 7.8M target-disease associations from 20+ evidence sources
+- **Integration**: Shipped as a core feature of the Open Targets Platform, used by 50k+ monthly users
 
-### Key Technical Challenges Solved
+### What I Built
 
-**Real-time Scoring at Scale** - Built framework allowing researchers to adjust evidence weights and see association scores recalculate instantly across millions of data points without performance degradation.
+**React Component & UX** — Designed and built the interactive evidence weighting interface, allowing researchers to adjust scores and see results update instantly without needing bioinformatics expertise.
 
-**Interactive Evidence Exploration** - Created intuitive interface for complex evidence weighting that doesn't require bioinformatics expertise, making advanced target prioritization accessible to broader research teams.
+**User Research** — Conducted research with the target user community to validate the tool's design and ensure it addressed real workflows in drug target prioritization.
 
-**Production Integration** - Successfully deployed as core feature of Open Targets Platform, maintaining 99.9% uptime while processing complex queries from pharmaceutical companies worldwide.
+**Publication** — Led the writing and methodology documentation for the Oxford Bioinformatics paper, coordinating with co-authors across the Open Targets team.
 
-### Research Impact & Validation
+### Research Impact
 
-- **Lead Author** publication in Oxford Bioinformatics (Impact Factor: 5.8)
-- **Methodology Innovation** - Established new standard for interactive evidence exploration in drug discovery
-- **Global Deployment** - Integrated into workflows at major pharmaceutical companies for target selection processes
-- **Community Adoption** - Featured in Open Targets Platform serving drug discovery researchers globally
-
-### Achievements
-
-**Breakthrough Research Publication** - Published methodology and software validation addressing critical user community needs in systematic drug target identification.
-
-**Production-Scale Implementation** - Built and deployed system processing complex genomics data in real-time for pharmaceutical research pipelines.
-
-**Cross-Functional Leadership** - Led collaboration between computational biologists, data scientists, and frontend engineers to translate research requirements into scalable technical solutions.
+- **Lead Author** in Oxford Bioinformatics (Impact Factor: 5.8)
+- **Integrated into Open Targets Platform** — used by pharmaceutical researchers and drug discovery teams globally
+- **Community-driven design** — tool requirements and validation shaped by direct engagement with the research community
 
 <br></br>
 
 <TagContainer>
   <Tag>React</Tag>
   <Tag>TypeScript</Tag>
-  <Tag>Python</Tag>
-  <Tag>D3js</Tag>
+  <Tag>Scala</Tag>
+  <Tag>ClickHouse</Tag>
   <Tag>Real-time Systems</Tag>
   <Tag>Data Visualization</Tag>
 </TagContainer>
@@ -82,17 +71,8 @@ The tool addresses critical limitations in existing target prioritization workfl
 
 <br></br>
 
-### Technical Stack & Innovation
-
-The tool represents a unique combination of research rigor and production-ready software engineering, implementing:
-
-- **Scalable Architecture** - Handles millions of associations with sub-second response times
-- **Research Methodology** - Scientifically validated evidence weighting algorithms  
-- **User Experience** - Intuitive interface designed for both computational and non-computational researchers
-- **Integration Standards** - Seamlessly integrated with existing Open Targets Platform infrastructure
-
 ### Credits
 
-This project was developed in collaboration with the Open Targets team, computational biologists, and the broader drug discovery research community. Special recognition to the interdisciplinary collaboration that made this research-to-production pipeline possible.
+Built within the Open Targets Platform, in collaboration with the engineering team responsible for the Scala/ClickHouse backend and the broader platform infrastructure.
 
 **Publication**: Cruz, C. et al. (2024). "Associations on the Fly, a new feature aiming to facilitate exploration of the Open Targets Platform evidence." Oxford Bioinformatics. https://doi.org/10.1093/bioinformatics/btaf070

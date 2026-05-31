@@ -32,7 +32,7 @@ export const CardContent = styled.div`
 export const CardTitle = styled.h3`
   margin-bottom: 4px;
   margin-top: 0px;
-  color: var(--cta-color);
+  color: var(--blue);
   text-overflow: ellipsis;
   overflow: hidden;
   height: 28px;
@@ -68,7 +68,8 @@ export const CardContainerImage = styled.div`
     height: 100%;
   }
   @media only screen and (max-width: 700px) {
-    display: none;
+    width: 100%;
+    height: 160px;
   }
 `;
 
