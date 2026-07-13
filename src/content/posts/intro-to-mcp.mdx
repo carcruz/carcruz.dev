@@ -1,0 +1,35 @@
+---
+path: '/blog/intro-to-mcp'
+title: 'My first steps into MCP'
+blog: true
+description: 'Notes from the start of a rabbit hole — Kent C. Dodds talks, the MCP Apps spec, and a plan to let an AI assistant render real widgets instead of describing them.'
+by: 'Carlos Cruz-Castillo'
+date: 'Aug 14, 2025'
+tags: 'journal, professional, mcp, open-targets, ai'
+order: 3
+---
+
+Hello!
+
+This one is the first entry in what I expect will be a small series. I want to write it down now, while the idea is still more question than answer, so future-me has a record of where this started.
+
+It started with Kent C. Dodds. I've been chipping away at his talks and videos on the [Model Context Protocol](https://modelcontextprotocol.io/ 'Model Context Protocol') for a few weeks now, mostly on the train, and something clicked that hadn't clicked when I first skimmed the spec on my own. MCP servers are usually framed as a way to give an assistant new *tools* — call a function, get some JSON back, let the model narrate it. That's useful, but it's also just an API with extra steps. What caught my attention was the newer idea of MCP apps — tools that don't just return data, they return *UI*. Real, interactive components rendered inside the assistant, not text pretending to be a chart.
+
+That reframed a problem I've been circling for a while. I spend a lot of my day job at [Open Targets](https://www.opentargets.org/ 'Open Targets') building interactive widgets — charts, viewers, tables that already handle the messy edge cases and already look right. Today, if you want that view through an AI assistant, the model either calls a plain data API and reconstructs a description in words, or you just don't get it at all. Neither feels great when the real component already exists.
+
+So the idea I'm sitting with is: what if the assistant could render the widget itself? Not a summary of it — the actual component, live, inside the conversation. Open Targets just happens to be the codebase I know well enough to try it on first.
+
+### The shape of the plan
+
+I haven't written the real implementation yet, but the planning is taking a shape I'm fairly confident in:
+
+- **A small MCP server** exposing a handful of existing widgets as tools, each one taking whatever identifiers the underlying data needs.
+- **A split between server code and widget code.** The server side just registers tools and serves a widget as an MCP UI resource. The widget side is the interesting part: the *actual* components, compiled standalone into self-contained browser bundles that can run inside an iframe with no dependency on the rest of the app they came from.
+- **A stub layer for the app's internal assumptions.** This is the part I expect to cause the most friction. Components built for a full app tend to assume they're mounted inside it — routing context, config providers, a data client, the works. None of that exists inside an assistant's iframe, so each bundle will need a thin compatibility layer to satisfy those imports without dragging the whole app along.
+- **One proof of concept before the rest.** Rather than migrating everything at once, I want to pick a single meaningfully complex widget and get it fully working end to end. If that one works, the rest is mostly repetition of the same pattern.
+
+None of this is shipped. Most of it isn't even prototyped yet — this post is me committing to the plan before I second-guess it into something blander. But I wanted to mark the starting point honestly: this is where the MCP thread begins for me, and I'd rather look back at an imperfect plan than have no record of the thinking at all.
+
+More on this as I actually get an iframe to render something real.
+
+Pura Vida!
