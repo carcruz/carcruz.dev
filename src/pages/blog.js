@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Seo from '../components/seo';
 import { Link } from 'gatsby';
 import {
@@ -17,6 +17,24 @@ import {
   LinkStyled,
 } from '../components/common';
 import moment from 'moment';
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const AnimatedCard = styled(Card)`
+  opacity: 0;
+  overflow: hidden;
+  animation: ${fadeInUp} 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: ${(props) => props.index * 55}ms;
+`;
 
 const StyledRoute = styled(Link)`
   ${LinkStyled}
@@ -133,8 +151,8 @@ const Posts = () => {
       <Seo title="Blog" />
       <br />
       <CardsContainer>
-        {blogPosts.map((node) => (
-          <Card key={node.id}>
+        {blogPosts.map((node, index) => (
+          <AnimatedCard key={node.id} index={index}>
             <StyledRoute to={node.path}>
               <CardContent>
                 <CardTitle>{node.title}</CardTitle>
@@ -152,7 +170,7 @@ const Posts = () => {
                 </TagContainer>
               </CardContent>
             </StyledRoute>
-          </Card>
+          </AnimatedCard>
         ))}
       </CardsContainer>
 
