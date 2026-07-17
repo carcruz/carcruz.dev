@@ -9,7 +9,7 @@ export const ImageMDX = ({ src, alt }) => {
         edges {
           node {
             fluid(maxWidth: 1440) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              ...GatsbyImageSharpFluid_withWebp
               originalName
             }
           }

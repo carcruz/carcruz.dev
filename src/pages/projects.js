@@ -166,6 +166,7 @@ const IndexPage = () => {
               path
               date
               categories
+              hidden
               smallImage {
                 childImageSharp {
                   fluid(maxWidth: 800) {
@@ -180,10 +181,12 @@ const IndexPage = () => {
     }
   `);
 
-  const projects = data.allMdx.edges.map((node) => ({
-    ...node.node.frontmatter,
-    id: node.node.id,
-  }));
+  const projects = data.allMdx.edges
+    .map((node) => ({
+      ...node.node.frontmatter,
+      id: node.node.id,
+    }))
+    .filter((p) => !p.hidden);
 
   const categoryFiltered = useMemo(
     () =>
