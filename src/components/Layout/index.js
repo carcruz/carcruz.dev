@@ -15,10 +15,11 @@ const PageContainer = styled.main`
 `;
 
 const ContentWrap = styled.section`
-  padding-bottom: 90px; /* Footer height */
+  padding-top: 40px;
+  padding-bottom: 90px;
   max-width: 1024px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: clip;
 `;
 
 const Footer = styled.footer`
@@ -42,12 +43,12 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
       <PageContainer>
+        <Header />
         <ContentWrap>
-          <Header />
           {children}
         </ContentWrap>
         <Footer>
-          <p>© {new Date().getFullYear()}, Carlos Cruz</p>
+          <p>© {new Date().getFullYear()}, Carlos Cruz-Castillo</p>
         </Footer>
       </PageContainer>
     </>

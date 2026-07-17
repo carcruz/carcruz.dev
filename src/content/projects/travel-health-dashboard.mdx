@@ -1,0 +1,54 @@
+---
+path: '/projects/travel-health-dashboard'
+title: 'Travel Health Dashboard'
+description: 'Auth-protected geospatial dashboard for visualizing traveler symptom reports by country, with timeline filtering and cluster drill-down.'
+by: 'Carlos Cruz-Castillo'
+tags: 'React, GraphQL, Leaflet, AWS'
+smallImage: '../../images/travel-health-dashboard/small.png'
+live: ''
+github: ''
+docs: ''
+paper: ''
+order: 6
+categories: 'Backend, Visualization'
+hidden: true
+---
+
+import { ImageMDX, TagContainer, Tag } from '../../components/common';
+
+The Travel Health Dashboard is a secure, internal tool built for the [Colubri Lab](https://www.colubrilab.org/) to visualize and explore symptom reports submitted by travelers. Researchers can explore geographic patterns in health data across countries, filter by symptom category and time period, and drill into individual report clusters — all through an interactive map interface.
+
+### Role
+
+**Frontend Architect & Engineer** — architected and built the entire frontend. The UI design was provided separately; I was responsible for all technical decisions, implementation, and the integration with the GraphQL backend.
+
+### Key Features
+
+**Geospatial visualization** — interactive dark-themed world map (React-Leaflet + CartoDB) with country-level donut markers breaking down reports by symptom category. Clicking a country flies the map to its bounds and opens a detail panel.
+
+**Cluster drill-down** — at higher zoom levels the view transitions from country-level aggregates to individual report points, clustered with `react-leaflet-cluster` for performance at scale.
+
+**Timeline slider** — date-range filter that recomputes country counts and visible markers in real time without re-fetching data.
+
+**Auth-protected** — AWS Cognito authentication (shared pool with Pounce) with JWT tokens attached per-request via Apollo Client's auth link.
+
+### Technical Architecture
+
+- **Frontend**: React 19 + Vite, Tailwind CSS
+- **Data**: Apollo Client v4 over a GraphQL API (th-backend), with Cognito JWT auth on every request
+- **Map**: React-Leaflet with custom SVG pie-chart markers, cluster groups, and programmatic flyTo/flyToBounds controls
+- **Deployment**: AWS Amplify (CI/CD from `dist/`)
+
+<br></br>
+
+<TagContainer>
+  <Tag>React 19</Tag>
+  <Tag>Apollo Client</Tag>
+  <Tag>GraphQL</Tag>
+  <Tag>React-Leaflet</Tag>
+  <Tag>Tailwind CSS</Tag>
+  <Tag>AWS Cognito</Tag>
+  <Tag>AWS Amplify</Tag>
+</TagContainer>
+
+<br></br>

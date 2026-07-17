@@ -1,0 +1,47 @@
+---
+path: '/projects/pathways-api'
+title: 'Pathways API'
+description: 'FastAPI backend and React frontend for gene set enrichment analysis and pathway visualization.'
+by: 'Carlos Cruz-Castillo'
+tags: 'Python, FastAPI, React, TypeScript'
+smallImage: '../../images/open-targets/small.png'
+live: ''
+github: ''
+docs: ''
+paper: ''
+order: 2
+categories: 'Research, AI, Backend'
+hidden: true
+---
+
+import { ImageMDX, TagContainer, Tag } from '../../components/common';
+
+Pathways API is a full-stack tool built for the Open Targets Platform to enable gene set enrichment analysis (GSEA) and pathway visualization. The project surfaces biological pathway context alongside target-disease evidence, helping researchers interpret large-scale association data in terms of known biological mechanisms.
+
+### Role
+
+**Lead Engineer** — designed and built both the FastAPI backend and the React/TypeScript frontend. Currently leading the migration of the UI into the `ot-ui-apps` Turbo monorepo.
+
+### Technical Architecture
+
+- **Backend**: Python (FastAPI) service exposing GSEA computation and pathway data through a REST API
+- **Frontend**: React/TypeScript visualization interface integrated with the Open Targets Platform
+- **Monorepo integration**: actively migrating the UI into `ot-ui-apps` for unified deployment and shared component access
+
+### Roadmap
+
+- Fix the pathway hierarchy builder
+- Add a JSON-based API endpoint for programmatic access
+- Integrate with Associations on the Fly for combined association + pathway exploration
+
+<br></br>
+
+<TagContainer>
+  <Tag>Python</Tag>
+  <Tag>FastAPI</Tag>
+  <Tag>React</Tag>
+  <Tag>TypeScript</Tag>
+  <Tag>Data Visualization</Tag>
+</TagContainer>
+
+<br></br>

@@ -5,14 +5,28 @@ export const MainText = styled.p`
   line-height: 1.5;
 `;
 
+export const LinkText = styled.a`
+  font-weight: 400;
+`;
+
+export const StrongText = styled.span`
+  font-weight: 400;
+`;
+
 export const SubTitle = styled.h2`
+  color: var(--main-color);
+  margin-top: 0;
+  margin-bottom: 15px;
+`;
+
+export const SubTitle2 = styled.h3`
   color: var(--main-color);
   margin-top: 0;
   margin-bottom: 30px;
 `;
 
 export const MainHeader = styled.div`
-  color: #000;
+  color: var(--navy);
   font-size: 34px;
   font-family: 'Inconsolata';
 `;

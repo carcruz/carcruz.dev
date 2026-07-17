@@ -97,7 +97,7 @@ export const LinkStyled = css`
   display: flex;
   color: #404041;
   width: 100%;
-  border: solid 1px #fff;
+  border: solid 1px transparent;
   transition: all 300ms ease;
   height: 100%;
   &:hover {

@@ -1,0 +1,84 @@
+---
+path: '/projects/associations-on-the-fly'
+title: 'Associations on the Fly'
+description: 'Interactive tool for systematic drug target identification and prioritization using real-time evidence weighting.'
+by: 'Carlos Cruz-Castillo'
+tags: 'React, TypeScript, D3.js'
+smallImage: '../../images/aotf/small.png'
+live: 'https://platform.opentargets.org/evidence'
+github: 'https://github.com/opentargets/ot-ui-apps'
+docs: 'https://platform-docs.opentargets.org/evidence#associations-on-the-fly'
+paper: 'https://doi.org/10.1093/bioinformatics/btaf070'
+order: 0
+categories: 'Research, Visualization'
+---
+
+import { ImageMDX, TagContainer, Tag } from '../../components/common';
+import Slider from 'react-slick';
+
+Associations on the Fly is an interactive React tool built for the Open Targets Platform that lets pharmaceutical researchers dynamically adjust evidence weights when prioritizing drug targets. Published as lead author in Oxford Bioinformatics (2024), the tool enables real-time recalculation and visualization of association scores across 7.8 million target-disease associations from 20+ data sources.
+
+### Role
+
+**Lead Author & React Component Lead** — I led the conceptualization, user research, and design of the interactive component, and drove the publication. The broader platform architecture and the backend were built by the Open Targets engineering team.
+
+### Technical Architecture
+
+- **Frontend**: React/TypeScript component with real-time scoring interface (my primary contribution)
+- **Backend**: Scala API handling association recalculation, backed by a ClickHouse data instance
+- **Data**: 7.8M target-disease associations from 20+ evidence sources
+- **Integration**: Shipped as a core feature of the Open Targets Platform, used by 50k+ monthly users
+
+### What I Built
+
+**React Component & UX** — Designed and built the interactive evidence weighting interface, allowing researchers to adjust scores and see results update instantly without needing bioinformatics expertise.
+
+**User Research** — Conducted research with the target user community to validate the tool's design and ensure it addressed real workflows in drug target prioritization.
+
+**Publication** — Led the writing and methodology documentation for the Oxford Bioinformatics paper, coordinating with co-authors across the Open Targets team.
+
+### Research Impact
+
+- **Lead Author** in Oxford Bioinformatics (Impact Factor: 5.8)
+- **Integrated into Open Targets Platform** — used by pharmaceutical researchers and drug discovery teams globally
+- **Community-driven design** — tool requirements and validation shaped by direct engagement with the research community
+
+<br></br>
+
+<TagContainer>
+  <Tag>React</Tag>
+  <Tag>TypeScript</Tag>
+  <Tag>Scala</Tag>
+  <Tag>ClickHouse</Tag>
+  <Tag>Real-time Systems</Tag>
+  <Tag>Data Visualization</Tag>
+</TagContainer>
+
+<br></br>
+<br></br>
+
+<Slider dots infinite slidesToShow={1} slidesToScroll={1}>
+  <div>
+    <ImageMDX src="aotf.png" alt="Associated targets table with pinned targets and novelty trend sparklines" />
+  </div>
+  <div>
+    <ImageMDX src="aotf_2.png" alt="Target prioritisation factors view with evidence weighting indicators" />
+  </div>
+  <div>
+    <ImageMDX src="aotf_1.png" alt="Novelty trend chart and physical interactor associations for a pinned target" />
+  </div>
+  <div>
+    <ImageMDX src="aotf_3.png" alt="GWAS credible set fine-mapping and locus-to-gene scoring breakdown" />
+  </div>
+  <div>
+    <ImageMDX src="aotf_4.png" alt="Export dialog for customizing associations and prioritisation data downloads" />
+  </div>
+</Slider>
+
+<br></br>
+
+### Credits
+
+Built within the Open Targets Platform, in collaboration with the engineering team responsible for the Scala/ClickHouse backend and the broader platform infrastructure.
+
+**Publication**: Cruz, C. et al. (2024). "Associations on the Fly, a new feature aiming to facilitate exploration of the Open Targets Platform evidence." Oxford Bioinformatics. https://doi.org/10.1093/bioinformatics/btaf070
