@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { getSrc } from 'gatsby-plugin-image';
 import {
   MainHeader,
   BlogHeader,
@@ -20,7 +20,6 @@ export const pageQuery = graphql`
   query ProjectQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
-      body
       frontmatter {
         title
         by
@@ -33,9 +32,7 @@ export const pageQuery = graphql`
         paper
         smallImage {
           childImageSharp {
-            fixed {
-              src
-            }
+            gatsbyImageData(layout: FIXED, width: 400)
           }
         }
       }
@@ -43,13 +40,13 @@ export const pageQuery = graphql`
   }
 `;
 
-export default function PageTemplate({ data: { mdx } }) {
+export default function PageTemplate({ data: { mdx }, children }) {
   return (
     <>
       <Seo
         description={mdx.frontmatter.description}
         title={mdx.frontmatter.title}
-        image={mdx.frontmatter.smallImage.childImageSharp.fixed.src}
+        image={getSrc(mdx.frontmatter.smallImage.childImageSharp)}
       />
       <BlogHeader>
         <MainHeader>{mdx.frontmatter.title}</MainHeader>
@@ -68,9 +65,7 @@ export default function PageTemplate({ data: { mdx } }) {
           <PaperLink url={mdx.frontmatter.paper}> See publication</PaperLink>
         )}
       </RelatedLinksContainer>
-      <BlogMainContent>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </BlogMainContent>
+      <BlogMainContent>{children}</BlogMainContent>
       <BlogFooter>
         <NavLink to="/projects">
           <IoIosArrowBack />

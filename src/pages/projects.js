@@ -169,9 +169,7 @@ const IndexPage = () => {
               hidden
               smallImage {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                  }
+                  gatsbyImageData(width: 800)
                 }
               }
             }
@@ -291,7 +289,10 @@ const IndexPage = () => {
               </FullCardContent>
               <CardContainerImage>
                 {node.smallImage && (
-                  <Image fluidPath={node.smallImage.childImageSharp.fluid} />
+                  <Image
+                    image={node.smallImage.childImageSharp}
+                    alt={node.title}
+                  />
                 )}
               </CardContainerImage>
             </StyledRoute>
