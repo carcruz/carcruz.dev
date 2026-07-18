@@ -44,12 +44,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: 'gatsby-source-dev',
-      options: {
-        username: 'carcruz',
-      },
-    },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
