@@ -6,6 +6,7 @@ module.exports = {
     description: `Software engineer, who worked in scientific and research settings`,
     author: `@_crcruz`,
     siteURL: 'https://www.carcruz.dev',
+    siteUrl: 'https://www.carcruz.dev',
   },
   plugins: [
     {
@@ -37,7 +38,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -62,6 +62,24 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: ['G-70EL1LWPQY'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        excludes: [
+          `/projects/pounce`,
+          `/projects/travel-health-dashboard`,
+          `/projects/pathways-api`,
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://www.carcruz.dev`,
+        sitemap: `https://www.carcruz.dev/sitemap-index.xml`,
+        policy: [{ userAgent: `*`, allow: `/` }],
       },
     },
   ],

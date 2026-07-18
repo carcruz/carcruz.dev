@@ -1,12 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'gatsby';
 
 import {
-  Tag,
-  TagContainer,
   Card,
   CardContent,
   CardsContainer,
@@ -153,7 +151,7 @@ const IndexPage = () => {
     query getProjects {
       allMdx(
         filter: { frontmatter: { path: { regex: "/projects/" } } }
-        sort: { order: ASC, fields: [frontmatter___order] }
+        sort: { frontmatter: { order: ASC } }
       ) {
         edges {
           node {
@@ -240,7 +238,6 @@ const IndexPage = () => {
 
   return (
     <>
-      <SEO title="Projects" />
       <br />
       <FilterBar>
         <CategoryRow>
@@ -304,3 +301,11 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export const Head = () => (
+  <Seo
+    title="Projects"
+    pathname="/projects/"
+    description="A selection of software engineering projects by Carlos Cruz-Castillo, spanning drug discovery platforms, data visualization, IoT, and AI-powered tooling."
+  />
+);

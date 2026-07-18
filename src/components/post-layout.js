@@ -14,7 +14,6 @@ import Seo from './seo';
 export default function PageTemplate({ data: { mdx }, children }) {
   return (
     <>
-      <Seo title={mdx.frontmatter.title} description={mdx.frontmatter.description} />
       <BlogHeader>
         <MainHeader>{mdx.frontmatter.title}</MainHeader>
         <ReferenceText>{mdx.frontmatter.description}</ReferenceText>
@@ -39,7 +38,27 @@ export const pageQuery = graphql`
         by
         description
         date
+        path
       }
     }
   }
 `;
+
+export const Head = ({ data: { mdx } }) => (
+  <Seo
+    title={mdx.frontmatter.title}
+    description={mdx.frontmatter.description}
+    pathname={mdx.frontmatter.path}
+    jsonLd={{
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: mdx.frontmatter.title,
+      description: mdx.frontmatter.description,
+      datePublished: mdx.frontmatter.date,
+      author: {
+        '@type': 'Person',
+        name: mdx.frontmatter.by,
+      },
+    }}
+  />
+);

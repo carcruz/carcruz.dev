@@ -30,6 +30,7 @@ export const pageQuery = graphql`
         live
         docs
         paper
+        path
         smallImage {
           childImageSharp {
             gatsbyImageData(layout: FIXED, width: 400)
@@ -43,11 +44,6 @@ export const pageQuery = graphql`
 export default function PageTemplate({ data: { mdx }, children }) {
   return (
     <>
-      <Seo
-        description={mdx.frontmatter.description}
-        title={mdx.frontmatter.title}
-        image={getSrc(mdx.frontmatter.smallImage.childImageSharp)}
-      />
       <BlogHeader>
         <MainHeader>{mdx.frontmatter.title}</MainHeader>
       </BlogHeader>
@@ -75,3 +71,23 @@ export default function PageTemplate({ data: { mdx }, children }) {
     </>
   );
 }
+
+export const Head = ({ data: { mdx } }) => (
+  <Seo
+    description={mdx.frontmatter.description}
+    title={mdx.frontmatter.title}
+    pathname={mdx.frontmatter.path}
+    image={getSrc(mdx.frontmatter.smallImage.childImageSharp)}
+    jsonLd={{
+      '@context': 'https://schema.org',
+      '@type': 'CreativeWork',
+      name: mdx.frontmatter.title,
+      description: mdx.frontmatter.description,
+      author: {
+        '@type': 'Person',
+        name: mdx.frontmatter.by,
+      },
+      ...(mdx.frontmatter.live && { url: mdx.frontmatter.live }),
+    }}
+  />
+);

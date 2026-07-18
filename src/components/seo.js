@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import titleImage from '../images/title-image.png';
 
-function SEO({ description, lang, meta, title, image = titleImage }) {
+function Seo({ description, lang, title, image = titleImage, pathname, jsonLd }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -23,71 +22,47 @@ function SEO({ description, lang, meta, title, image = titleImage }) {
   const metaDescription = description || site.siteMetadata.description;
   const siteURL = site.siteMetadata.siteURL;
   const metaImage = `${siteURL}${image}`;
+  const canonicalURL = pathname ? `${siteURL}${pathname}` : siteURL;
+  const metaTitle = title
+    ? `${title} | ${site.siteMetadata.title}`
+    : site.siteMetadata.title;
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:image`,
-          content: metaImage,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary_large_image`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `twitter:image`,
-          content: metaImage,
-        },
-      ].concat(meta)}
-    />
+    <>
+      <html lang={lang} />
+      <title>{metaTitle}</title>
+      <link rel="canonical" href={canonicalURL} />
+      <meta name="description" content={metaDescription} />
+      <meta property="og:title" content={title || site.siteMetadata.title} />
+      <meta property="og:image" content={metaImage} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={canonicalURL} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content={site.siteMetadata.author} />
+      <meta name="twitter:title" content={title || site.siteMetadata.title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={metaImage} />
+      {jsonLd && (
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      )}
+    </>
   );
 }
 
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `en`,
-  meta: [],
   description: ``,
+  pathname: ``,
+  jsonLd: null,
 };
 
-SEO.propTypes = {
+Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  pathname: PropTypes.string,
+  jsonLd: PropTypes.object,
 };
 
-export default SEO;
+export default Seo;
