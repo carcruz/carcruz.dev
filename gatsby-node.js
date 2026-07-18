@@ -1,5 +1,43 @@
+const crypto = require('crypto');
+
+const DEV_TO_USERNAME = 'carcruz';
+
+exports.sourceNodes = async ({ actions, reporter }) => {
+  const { createNode } = actions;
+
+  let articles;
+  try {
+    const res = await fetch(
+      `https://dev.to/api/articles?username=${DEV_TO_USERNAME}`
+    );
+    if (!res.ok) {
+      throw new Error(`dev.to API responded with ${res.status}`);
+    }
+    articles = await res.json();
+  } catch (error) {
+    reporter.warn(`Could not fetch dev.to articles: ${error.message}`);
+    return;
+  }
+
+  articles.forEach((article) => {
+    const jsonString = JSON.stringify(article);
+    createNode({
+      article,
+      id: `${article.id}`,
+      parent: null,
+      children: [],
+      internal: {
+        type: 'DevArticles',
+        contentDigest: crypto.createHash('md5').update(jsonString).digest('hex'),
+      },
+    });
+  });
+};
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
+  const postTemplate = require.resolve('./src/components/post-layout.js');
+  const projectTemplate = require.resolve('./src/components/project-layout.js');
   // POSTS
   const posts = await graphql(`
     query {
@@ -7,6 +45,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         edges {
           node {
             id
+            internal {
+              contentFilePath
+            }
             frontmatter {
               path
             }
@@ -22,7 +63,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   postsNodes.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.path,
-      component: require.resolve('./src/components/post-layout.js'),
+      component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: { id: node.id },
     });
   });
@@ -33,6 +74,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         edges {
           node {
             id
+            internal {
+              contentFilePath
+            }
             frontmatter {
               path
             }
@@ -48,7 +92,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   projectsNodes.forEach(({ node }) => {
     createPage({
       path: node.frontmatter.path,
-      component: require.resolve('./src/components/project-layout.js'),
+      component: `${projectTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: { id: node.id },
     });
   });

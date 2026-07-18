@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { getSrc } from 'gatsby-plugin-image';
 import {
   MainHeader,
   BlogHeader,
@@ -20,7 +20,6 @@ export const pageQuery = graphql`
   query ProjectQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
-      body
       frontmatter {
         title
         by
@@ -31,11 +30,10 @@ export const pageQuery = graphql`
         live
         docs
         paper
+        path
         smallImage {
           childImageSharp {
-            fixed {
-              src
-            }
+            gatsbyImageData(layout: FIXED, width: 400)
           }
         }
       }
@@ -43,14 +41,9 @@ export const pageQuery = graphql`
   }
 `;
 
-export default function PageTemplate({ data: { mdx } }) {
+export default function PageTemplate({ data: { mdx }, children }) {
   return (
     <>
-      <Seo
-        description={mdx.frontmatter.description}
-        title={mdx.frontmatter.title}
-        image={mdx.frontmatter.smallImage.childImageSharp.fixed.src}
-      />
       <BlogHeader>
         <MainHeader>{mdx.frontmatter.title}</MainHeader>
       </BlogHeader>
@@ -68,9 +61,7 @@ export default function PageTemplate({ data: { mdx } }) {
           <PaperLink url={mdx.frontmatter.paper}> See publication</PaperLink>
         )}
       </RelatedLinksContainer>
-      <BlogMainContent>
-        <MDXRenderer>{mdx.body}</MDXRenderer>
-      </BlogMainContent>
+      <BlogMainContent>{children}</BlogMainContent>
       <BlogFooter>
         <NavLink to="/projects">
           <IoIosArrowBack />
@@ -80,3 +71,23 @@ export default function PageTemplate({ data: { mdx } }) {
     </>
   );
 }
+
+export const Head = ({ data: { mdx } }) => (
+  <Seo
+    description={mdx.frontmatter.description}
+    title={mdx.frontmatter.title}
+    pathname={mdx.frontmatter.path}
+    image={getSrc(mdx.frontmatter.smallImage.childImageSharp)}
+    jsonLd={{
+      '@context': 'https://schema.org',
+      '@type': 'CreativeWork',
+      name: mdx.frontmatter.title,
+      description: mdx.frontmatter.description,
+      author: {
+        '@type': 'Person',
+        name: mdx.frontmatter.by,
+      },
+      ...(mdx.frontmatter.live && { url: mdx.frontmatter.live }),
+    }}
+  />
+);

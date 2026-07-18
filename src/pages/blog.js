@@ -4,7 +4,6 @@ import styled, { keyframes } from 'styled-components';
 import Seo from '../components/seo';
 import { Link } from 'gatsby';
 import {
-  SubTitle,
   Tag,
   TagContainer,
   Card,
@@ -121,7 +120,7 @@ const Posts = () => {
       }
       allMdx(
         filter: { frontmatter: { path: { regex: "/blog/" } } }
-        sort: { order: DESC, fields: [frontmatter___order] }
+        sort: { frontmatter: { order: DESC } }
       ) {
         nodes {
           id
@@ -148,7 +147,6 @@ const Posts = () => {
 
   return (
     <>
-      <Seo title="Blog" />
       <br />
       <CardsContainer>
         {blogPosts.map((node, index) => (
@@ -199,3 +197,11 @@ const Posts = () => {
 };
 
 export default Posts;
+
+export const Head = () => (
+  <Seo
+    title="Blog"
+    pathname="/blog/"
+    description="Articles on software engineering, data visualization, and drug discovery platforms by Carlos Cruz-Castillo."
+  />
+);

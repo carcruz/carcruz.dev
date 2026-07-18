@@ -1,10 +1,11 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-export const Image = ({ fluidPath }) => {
-  if (!fluidPath) {
+export const Image = ({ image, alt = '' }) => {
+  const imageData = getImage(image);
+  if (!imageData) {
     return <div>Picture not found</div>;
   }
 
-  return <Img fluid={fluidPath} />;
+  return <GatsbyImage image={imageData} alt={alt} />;
 };

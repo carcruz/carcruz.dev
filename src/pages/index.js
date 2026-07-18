@@ -56,8 +56,6 @@ const AnimatedBlock = styled.div`
 
 const HomePage = () => (
   <>
-    <Seo title="Home" />
-
     <ProfileContainer>
       <AnimatedBlock index={0}>
         <MainHeader>Carlos Cruz-Castillo</MainHeader>
@@ -144,3 +142,25 @@ const HomePage = () => (
 );
 
 export default HomePage;
+
+export const Head = () => (
+  <Seo
+    title="Home"
+    pathname="/"
+    description="Carlos Cruz-Castillo is a full-stack software engineer and team lead specializing in data-centred applications and data visualization, from genomics and drug discovery to IoT and AI-powered tooling."
+    jsonLd={{
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Carlos Cruz-Castillo',
+      jobTitle: 'Senior Software Engineer & Team Lead',
+      url: 'https://www.carcruz.dev',
+      email: 'mailto:me@carcruzcast.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Cambridge',
+        addressCountry: 'GB',
+      },
+      sameAs: ['https://github.com/carcruz'],
+    }}
+  />
+);
