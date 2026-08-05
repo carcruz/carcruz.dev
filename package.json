@@ -55,7 +55,7 @@
     "@babel/plugin-proposal-class-properties": "npm:@babel/plugin-transform-class-properties@^7.29.7",
     "ws": "^8.21.0",
     "flatted": "^3.4.2",
-    "socket.io-parser": "^4.2.6",
+    "socket.io-parser": "^4.2.7",
     "qs": "^6.15.2",
     "socket.io": "^4.6.2",
     "engine.io": "^6.4.2",
